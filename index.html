@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>Nafi'ah Library</title>
     <style>
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             background: #ffffff; /* white background */
             text-align: center;
             color: #333333;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .circular-img {
             width: 250px;
             height: 250px;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid #ffffff; /* optional white border */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* subtle shadow for depth */
+            border: 5px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             margin-bottom: 20px;
         }
         .circular-img img {
@@ -33,6 +35,23 @@
         }
         h1 {
             font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 40px;
+        }
+        footer {
+            font-size: 14px;
+            color: #777777;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 480px) {
+            .circular-img {
+                width: 180px;
+                height: 180px;
+            }
+            h1 {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -43,5 +62,6 @@
         </a>
     </div>
     <h1>আমরা বর্তমানে আমাদের ওয়েবসাইটের উপর কাজ করছি। খুব শীঘ্রই এটি প্রকাশিত হবে, ইনশাআল্লাহ।</h1>
+    <footer>© Nafi'ah Library since 2025</footer>
 </body>
 </html>
