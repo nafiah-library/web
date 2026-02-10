@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Details</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="menu-btn" onclick="goBack()">←</div>
+  <h3>বইয়ের বিস্তারিত</h3>
+</header>
+
+<div class="details" id="bookDetails"></div>
+
+<script src="data.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
+
+const book = books.find(b => b.id == id);
+
+document.getElementById('bookDetails').innerHTML = `
+  <img src="${book.img}">
+  <h2>${book.title}</h2>
+  <p><strong>লেখক:</strong> ${book.author}</p>
+  <p><strong>প্রকাশনী:</strong> ${book.publisher}</p>
+  <p><strong>পৃষ্ঠা:</strong> ${book.page}</p>
+  <p style="margin-top:10px">${book.details}</p>
+
+  <a class="btn" href="category.html?cat=${encodeURIComponent(book.category)}">⬅ Category</a>
+  <a class="btn" href="index.html">🏠 Home</a>
+`;
+
+// Back function
+function goBack(){
+  window.history.back();
+}
+</script>
+
+</body>
+</html>
