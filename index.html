@@ -1,77 +1,147 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nafi'ah Library</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #ffffff;
-            text-align: center;
-            color: #333333;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nafi'ah Library</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to bottom, #cce7ff, #ffffff);
+        text-align: center;
+        color: #1a1a1a;
+        padding: 30px 20px;
+        box-sizing: border-box;
+    }
+
+    .circular-img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 8px solid #ffffff;
+        box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+        margin-bottom: 25px;
+        animation: glow 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        0% { box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); }
+        50% { box-shadow: 0 0 25px rgba(0, 123, 255, 0.6); }
+        100% { box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); }
+    }
+
+    .circular-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    h1 {
+        font-size: 22px;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        font-weight: 500;
+        max-width: 500px;
+    }
+
+    /* Button */
+    .btn {
+        background: linear-gradient(90deg, #007bff, #00c6ff);
+        color: white;
+        text-decoration: none;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 500;
+        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+        transition: all 0.3s ease;
+        display: inline-block;
+        user-select: none;
+        margin-bottom: 25px;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Hidden iframe initially */
+    #bookFrame {
+        width: 90%;
+        max-width: 800px;
+        height: 500px;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        display: none;
+        background: white;
+    }
+
+    footer {
+        font-size: 14px;
+        color: #555555;
+        margin-top: 30px;
+    }
+
+    @media (max-width: 480px) {
         .circular-img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 5px solid #ffffff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            margin-bottom: 20px;
-            position: relative;
-        }
-        .circular-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none; /* Prevent right-click on image */
-            user-select: none;    /* Prevent copy */
+            width: 180px;
+            height: 180px;
         }
         h1 {
-            font-size: 20px;
-            line-height: 1.4;
-            margin-bottom: 40px;
+            font-size: 18px;
         }
-        footer {
-            font-size: 14px;
-            color: #777777;
+        #bookFrame {
+            height: 350px;
         }
-
-        /* Mobile responsiveness */
-        @media (max-width: 480px) {
-            .circular-img {
-                width: 180px;
-                height: 180px;
-            }
-            h1 {
-                font-size: 16px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-    <div class="circular-img">
-        <img src="https://i.ibb.co.com/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="Website Coming Soon">
-    </div>
-    <h1>আমরা বর্তমানে আমাদের ওয়েবসাইটের উপর কাজ করছি। খুব শীঘ্রই এটি প্রকাশিত হবে, ইনশাআল্লাহ।</h1>
-    <footer>© Nafi'ah Library since 2025</footer>
 
-    <script>
-        // Disable right-click on entire page
-        document.addEventListener('contextmenu', event => event.preventDefault());
+<div class="circular-img">
+    <img src="https://i.ibb.co.com/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="Website Coming Soon">
+</div>
 
-        // Optional: Disable dragging the image
-        const img = document.querySelector('.circular-img img');
-        img.ondragstart = () => false;
-    </script>
+<h1>আমরা বর্তমানে আমাদের ওয়েবসাইটের উপর কাজ করছি। খুব শীঘ্রই এটি প্রকাশিত হবে, ইনশাআল্লাহ।</h1>
+
+<a class="btn" id="seeBooks">📚 বইয়ের তালিকা দেখুন</a>
+
+<!-- Embedded book list preview -->
+<iframe id="bookFrame" allow="fullscreen"></iframe>
+
+<footer>© Nafi'ah Library since 2025</footer>
+
+<script>
+    // Disable right-click
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Disable dragging image
+    document.querySelector('.circular-img img').ondragstart = () => false;
+
+    // Handle Book List button click
+    document.getElementById('seeBooks').addEventListener('click', () => {
+        const frame = document.getElementById('bookFrame');
+        if (frame.style.display === 'none') {
+            // Use embedded preview link (safe & view-only)
+            frame.src = "https://drive.google.com/file/d/1mGX9R1Dop2FCF4JE0ooaPeSQmz369xC6/preview";
+            frame.style.display = 'block';
+            document.getElementById('seeBooks').innerText = "🔒 বইয়ের তালিকা লুকান";
+        } else {
+            frame.style.display = 'none';
+            document.getElementById('seeBooks').innerText = "📚 বইয়ের তালিকা দেখুন";
+        }
+    });
+</script>
+
 </body>
 </html>
