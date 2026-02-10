@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <title>নামাজ ট্র্যাকার</title>
+  <style>
+    body {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      background: #e3f2fd;
+      padding: 20px;
+      text-align: center;
+    }
+    h2 {
+      color: #0d47a1;
+    }
+    table {
+      margin: auto;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 600px;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    button {
+      padding: 5px 10px;
+      margin: 2px;
+      font-size: 14px;
+    }
+    .tick { background-color: #4caf50; color: white; }
+    .cross { background-color: #f44336; color: white; }
+    .marked { font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h2>নামাজ ট্র্যাকার - <span id="monthName"></span></h2>
+  <table>
+    <thead>
+      <tr>
+        <th>তারিখ</th>
+        <th>ফজর</th>
+        <th>যোহর</th>
+        <th>আসর</th>
+        <th>মাগরিব</th>
+        <th>ঈশা</th>
+      </tr>
+    </thead>
+    <tbody id="namazTable"></tbody>
+  </table>
+
+  <script>
+    const daysInMonth = new Date().getMonth() === 1 ? 28 : 30; // ধরছি প্রতি মাসে 30 দিন
+    const namazTypes = ["ফজর", "যোহর", "আসর", "মাগরিব", "ঈশা"];
+    const table = document.getElementById("namazTable");
+
+    function mark(cell, type) {
+      cell.innerText = type === 'tick' ? '✔' : '✘';
+      cell.className = 'marked';
+      cell.style.color = type === 'tick' ? 'green' : 'red';
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${day}</td>`;
+      for (let i = 0; i < namazTypes.length; i++) {
+        const cell = document.createElement("td");
+        const tick = document.createElement("button");
+        tick.innerText = "✔";
+        tick.className = "tick";
+        tick.onclick = () => mark(cell, 'tick');
+
+        const cross = document.createElement("button");
+        cross.innerText = "✘";
+        cross.className = "cross";
+        cross.onclick = () => mark(cell, 'cross');
+
+        cell.appendChild(tick);
+        cell.appendChild(cross);
+        row.appendChild(cell);
+      }
+      table.appendChild(row);
+    }
+
+    document.getElementById("monthName").innerText = new Date().toLocaleString("bn-BD", { month: 'long' });
+  </script>
+
+</body>
+</html>
