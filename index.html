@@ -1,91 +1,95 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <title>নামাজ ট্র্যাকার</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>নাফিআ’হ লাইব্রেরী — শীঘ্রই আসছে</title>
   <style>
     body {
+      background-color: #ffffff;
+      color: #333;
       font-family: 'Noto Sans Bengali', sans-serif;
-      background: #e3f2fd;
-      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
       text-align: center;
+      padding: 20px;
     }
-    h2 {
-      color: #0d47a1;
+    .circle-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 20px;
+      border: 6px solid white;
+      background-color: #d0f0fd;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
     }
-    table {
-      margin: auto;
-      border-collapse: collapse;
-      width: 90%;
-      max-width: 600px;
-      background: white;
+    .circle-img img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(100%);
+      animation: fillWater 4s infinite linear;
     }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
+    @keyframes fillWater {
+      0% { transform: translateX(-50%) translateY(100%); }
+      50% { transform: translateX(-50%) translateY(0%); }
+      100% { transform: translateX(-50%) translateY(100%); }
     }
-    button {
-      padding: 5px 10px;
-      margin: 2px;
-      font-size: 14px;
+    .percentage {
+      font-size: 1.2rem;
+      color: #555555;
+      margin-top: 10px;
     }
-    .tick { background-color: #4caf50; color: white; }
-    .cross { background-color: #f44336; color: white; }
-    .marked { font-weight: bold; }
+    h1 {
+      font-size: 2rem;
+      color: #222222;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #555555;
+      line-height: 1.6;
+      max-width: 400px;
+      margin: 0 auto 20px auto;
+    }
+    @media (max-width: 500px) {
+      .circle-img { width: 140px; height: 140px; }
+      .circle-img img { width: 120px; height: 120px; }
+      h1 { font-size: 1.5rem; }
+      p, .percentage { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
-
-  <h2>নামাজ ট্র্যাকার - <span id="monthName"></span></h2>
-  <table>
-    <thead>
-      <tr>
-        <th>তারিখ</th>
-        <th>ফজর</th>
-        <th>যোহর</th>
-        <th>আসর</th>
-        <th>মাগরিব</th>
-        <th>ঈশা</th>
-      </tr>
-    </thead>
-    <tbody id="namazTable"></tbody>
-  </table>
-
+  <div class="circle-img">
+    <img src="https://i.ibb.co.com/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="নাফিআ’হ লাইব্রেরী">
+  </div>
+  <div class="percentage">0%</div>
+  <h1>নাফিআ’হ লাইব্রেরী</h1>
+  <p>আমরা ওয়েবসাইটের জন্য কাজ করছি।<br>
+  খুব শীঘ্রই, ইনশাআল্লাহ এটি প্রকাশিত হবে!<br>
+  ধৈর্য ধরুন এবং আমাদের সাথে থাকুন। 🌸✨</p>
   <script>
-    const daysInMonth = new Date().getMonth() === 1 ? 28 : 30; // ধরছি প্রতি মাসে 30 দিন
-    const namazTypes = ["ফজর", "যোহর", "আসর", "মাগরিব", "ঈশা"];
-    const table = document.getElementById("namazTable");
-
-    function mark(cell, type) {
-      cell.innerText = type === 'tick' ? '✔' : '✘';
-      cell.className = 'marked';
-      cell.style.color = type === 'tick' ? 'green' : 'red';
-    }
-
-    for (let day = 1; day <= daysInMonth; day++) {
-      const row = document.createElement("tr");
-      row.innerHTML = `<td>${day}</td>`;
-      for (let i = 0; i < namazTypes.length; i++) {
-        const cell = document.createElement("td");
-        const tick = document.createElement("button");
-        tick.innerText = "✔";
-        tick.className = "tick";
-        tick.onclick = () => mark(cell, 'tick');
-
-        const cross = document.createElement("button");
-        cross.innerText = "✘";
-        cross.className = "cross";
-        cross.onclick = () => mark(cell, 'cross');
-
-        cell.appendChild(tick);
-        cell.appendChild(cross);
-        row.appendChild(cell);
-      }
-      table.appendChild(row);
-    }
-
-    document.getElementById("monthName").innerText = new Date().toLocaleString("bn-BD", { month: 'long' });
+    const percentage = document.querySelector('.percentage');
+    let value = 0;
+    setInterval(() => {
+      value += 1;
+      if(value > 100) value = 0;
+      percentage.textContent = value + '%';
+    }, 40);
   </script>
-
 </body>
 </html>
