@@ -1,161 +1,165 @@
-/* =========================
-   Global Reset
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", system-ui, sans-serif;
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap');
+
+*{
+  box-sizing:border-box;
 }
 
-body {
-  background: #f5f7fa;
-  color: #222;
-  line-height: 1.6;
+body{
+  margin:0;
+  font-family:'Hind Siliguri', sans-serif;
+  background:#f4f4f4;
+  color:#222;
 }
 
-/* =========================
-   Header
-========================= */
-.header {
-  background: linear-gradient(135deg, #0a3d62, #1e6091);
-  color: #fff;
-  text-align: center;
-  padding: 30px 15px;
+/* Header */
+header{
+  background:#7a0d0d;
+  color:#fff;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.logo {
-  width: 90px;
-  height: auto;
-  border-radius: 50%;
-  background: #fff;
-  padding: 6px;
-  margin-bottom: 10px;
+header img{
+  height:45px;
 }
 
-.header h1 {
-  font-size: 1.8rem;
-  margin-bottom: 5px;
+.menu-btn{
+  font-size:24px;
+  cursor:pointer;
+  padding:4px 8px;
 }
 
-.subtitle {
-  font-size: 0.95rem;
-  opacity: 0.9;
+/* Drawer */
+.drawer{
+  position:fixed;
+  left:-260px;
+  top:0;
+  width:250px;
+  height:100%;
+  background:#fff;
+  box-shadow:2px 0 8px rgba(0,0,0,.3);
+  transition:.3s;
+  padding:15px;
+  z-index:1000;
 }
 
-/* =========================
-   Hero Section
-========================= */
-.hero {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
-  text-align: center;
+.drawer a{
+  display:block;
+  padding:12px 6px;
+  text-decoration:none;
+  color:#333;
+  font-size:16px;
+  border-bottom:1px solid #eee;
 }
 
-.hero p {
-  font-size: 1.05rem;
-  margin-bottom: 25px;
-  color: #333;
+/* Search */
+.search{
+  margin:12px;
 }
 
-/* =========================
-   Button
-========================= */
-.btn {
-  display: inline-block;
-  background: #1e6091;
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 22px;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: 0.3s ease;
+.search input{
+  width:100%;
+  padding:12px;
+  font-size:16px;
+  border:1px solid #ccc;
+  border-radius:4px;
 }
 
-.btn:hover {
-  background: #144e75;
-  transform: translateY(-2px);
+/* Category List */
+.category-list{
+  padding:10px;
 }
 
-/* =========================
-   Category / Card Layout
-========================= */
-.container {
-  max-width: 1100px;
-  margin: 30px auto;
-  padding: 0 15px;
+.category-item{
+  background:#fff;
+  padding:15px;
+  margin:10px 0;
+  font-size:18px;
+  border-left:6px solid #7a0d0d;
+  cursor:pointer;
+  box-shadow:0 2px 5px rgba(0,0,0,.1);
 }
 
-.section-title {
-  font-size: 1.4rem;
-  margin: 30px 0 15px;
-  color: #0a3d62;
-  border-left: 5px solid #1e6091;
-  padding-left: 10px;
+/* Book Grid */
+.book-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:12px;
+  padding:12px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
+/* Book Card */
+.book{
+  background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
+  border-radius:6px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.2s;
 }
 
-.card {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-  padding: 12px;
-  text-align: center;
-  transition: 0.3s ease;
+.book:hover{
+  transform:scale(1.03);
 }
 
-.card:hover {
-  transform: translateY(-4px);
+.book img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
 }
 
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 6px;
+.book h4{
+  margin:8px;
+  font-size:15px;
 }
 
-.card h3 {
-  font-size: 0.95rem;
-  margin: 10px 0 5px;
+/* Title */
+.title{
+  padding:12px;
+  font-size:20px;
+  font-weight:600;
 }
 
-.card p {
-  font-size: 0.8rem;
-  color: #555;
+/* Book Details */
+.details{
+  padding:15px;
 }
 
-/* =========================
-   Footer
-========================= */
-.footer {
-  text-align: center;
-  background: #0a3d62;
-  color: #fff;
-  padding: 12px;
-  font-size: 0.85rem;
-  margin-top: 40px;
+.details img{
+  width:100%;
+  max-height:380px;
+  object-fit:cover;
+  border-radius:6px;
 }
 
-/* =========================
-   Responsive
-========================= */
-@media (max-width: 480px) {
-  .header h1 {
-    font-size: 1.4rem;
-  }
+.details h2{
+  margin-top:12px;
+}
 
-  .hero p {
-    font-size: 0.95rem;
-  }
+.details p{
+  font-size:15px;
+  margin:6px 0;
+}
 
-  .card img {
-    height: 190px;
+/* Buttons */
+.btn{
+  display:inline-block;
+  margin-top:12px;
+  margin-right:8px;
+  padding:10px 14px;
+  background:#7a0d0d;
+  color:#fff;
+  text-decoration:none;
+  border-radius:4px;
+  font-size:14px;
+}
+
+/* Responsive tweak */
+@media(max-width:480px){
+  .book img{
+    height:200px;
   }
 }
