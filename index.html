@@ -1,95 +1,50 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>নাফি’আহ লাইব্রেরী</title>
-<link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>নাফি’আহ লাইব্রেরী</title>
 
+  <!-- Basic SEO -->
+  <meta name="description" content="নাফি’আহ লাইব্রেরী — বিশুদ্ধ আকীদা, ফিকহ, ইবাদত ও ইসলামী জ্ঞানভিত্তিক বইয়ের সংগ্রহ।">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-<!-- Drawer Menu -->
-<div class="drawer" id="drawer">
-  <a href="index.html">🏠 Home</a>
-  <a href="#" onclick="goCategory('আকীদাহ ও মানহাজ')">আকীদাহ ও মানহাজ</a>
-  <a href="#" onclick="goCategory('ফিকহ')">ফিকহ</a>
-  <a href="#" onclick="goCategory('ইবাদত ও আমল')">ইবাদত ও আমল</a>
-  <a href="#" onclick="goCategory('আত্মশুদ্ধি ও অনুপ্রেরণা')">আত্মশুদ্ধি ও অনুপ্রেরণা</a>
-  <a href="#" onclick="goCategory('সিরাহ')">সিরাহ</a>
-  <a href="#" onclick="goCategory('দোয়া ও যিকির')">দোয়া ও যিকির</a>
-</div>
+  <!-- Header -->
+  <header class="header">
+    <img 
+      src="https://i.ibb.co.com/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" 
+      alt="নাফি’আহ লাইব্রেরী লোগো"
+      class="logo"
+    >
+    <h1>নাফি’আহ লাইব্রেরী</h1>
+    <p class="subtitle">বিশুদ্ধ ইলমের নির্ভরযোগ্য সংগ্রহ</p>
+  </header>
 
-<!-- Header -->
-<header>
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  <img src="https://i.ibb.co.com/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="logo">
-  <h3>নাফি’আহ লাইব্রেরী</h3>
-</header>
+  <!-- Hero Section -->
+  <main class="hero">
+    <p>
+      আকীদাহ, ফিকহ, ইবাদত, আত্মশুদ্ধি, সিরাহ ও অন্যান্য  
+      ইসলামী বিষয়ের নির্বাচিত বইসমূহ এক জায়গায়।
+    </p>
 
-<!-- Search -->
-<div class="search">
-  <input type="text" id="searchInput" placeholder="বইয়ের নাম লিখে খুঁজুন..." onkeyup="liveSearch()">
-</div>
+    <a href="categories.html" class="btn">
+      📚 বইয়ের বিভাগসমূহ দেখুন
+    </a>
+  </main>
 
-<!-- Category List -->
-<div class="category-list" id="categoryList">
+  <!-- Footer -->
+  <footer class="footer">
+    © <span id="year"></span> নাফি’আহ লাইব্রেরী
+  </footer>
 
-  <div class="category-item" onclick="goCategory('আকীদাহ ও মানহাজ')">আকীদাহ ও মানহাজ</div>
-  <div class="category-item" onclick="goCategory('ফিকহ')">ফিকহ</div>
-  <div class="category-item" onclick="goCategory('ইবাদত ও আমল')">ইবাদত ও আমল</div>
-  <div class="category-item" onclick="goCategory('আত্মশুদ্ধি ও অনুপ্রেরণা')">আত্মশুদ্ধি ও অনুপ্রেরণা</div>
-  <div class="category-item" onclick="goCategory('সিরাহ')">সিরাহ</div>
-  <div class="category-item" onclick="goCategory('দোয়া ও যিকির')">দোয়া ও যিকির</div>
-
-</div>
-
-<!-- Live Search Result -->
-<div class="book-grid" id="searchResult" style="display:none;"></div>
-
-<script src="data.js"></script>
-<script>
-function toggleMenu(){
-  let d=document.getElementById('drawer');
-  d.style.left=d.style.left=='0px'?'-250px':'0px';
-}
-
-function goCategory(cat){
-  window.location='category.html?cat='+encodeURIComponent(cat);
-}
-
-// 🔍 Live Search
-function liveSearch(){
-  let input=document.getElementById('searchInput').value.toLowerCase();
-  let resultDiv=document.getElementById('searchResult');
-  let catList=document.getElementById('categoryList');
-
-  if(input.length<1){
-    resultDiv.style.display="none";
-    catList.style.display="block";
-    return;
-  }
-
-  let html="";
-  books.forEach(b=>{
-    if(b.title.toLowerCase().includes(input)){
-      html+=`
-      <div class="book" onclick="goBook(${b.id})">
-        <img src="${b.img}">
-        <h4>${b.title}</h4>
-      </div>`;
-    }
-  });
-
-  resultDiv.innerHTML=html;
-  resultDiv.style.display="grid";
-  catList.style.display="none";
-}
-
-function goBook(id){
-  window.location='book.html?id='+id;
-}
-</script>
+  <script>
+    // Auto year
+    document.getElementById("year").innerText = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
