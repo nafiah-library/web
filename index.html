@@ -1,95 +1,47 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>নাফিআ’হ লাইব্রেরী — শীঘ্রই আসছে</title>
-  <style>
-    body {
-      background-color: #ffffff;
-      color: #333;
-      font-family: 'Noto Sans Bengali', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-      padding: 20px;
-    }
-    .circle-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      overflow: hidden;
-      position: relative;
-      margin-bottom: 20px;
-      border: 6px solid white;
-      background-color: #d0f0fd;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
-    .circle-img img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%) translateY(100%);
-      animation: fillWater 4s infinite linear;
-    }
-    @keyframes fillWater {
-      0% { transform: translateX(-50%) translateY(100%); }
-      50% { transform: translateX(-50%) translateY(0%); }
-      100% { transform: translateX(-50%) translateY(100%); }
-    }
-    .percentage {
-      font-size: 1.2rem;
-      color: #555555;
-      margin-top: 10px;
-    }
-    h1 {
-      font-size: 2rem;
-      color: #222222;
-      margin-bottom: 15px;
-    }
-    p {
-      font-size: 1.1rem;
-      color: #555555;
-      line-height: 1.6;
-      max-width: 400px;
-      margin: 0 auto 20px auto;
-    }
-    @media (max-width: 500px) {
-      .circle-img { width: 140px; height: 140px; }
-      .circle-img img { width: 120px; height: 120px; }
-      h1 { font-size: 1.5rem; }
-      p, .percentage { font-size: 1rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #ffffff; /* white background */
+            text-align: center;
+            color: #333333;
+        }
+        .circular-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #ffffff; /* optional white border */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* subtle shadow for depth */
+            margin-bottom: 20px;
+        }
+        .circular-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        h1 {
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
-  <div class="circle-img">
-    <img src="https://i.ibb.co.com/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="নাফিআ’হ লাইব্রেরী">
-  </div>
-  <div class="percentage">0%</div>
-  <h1>নাফিআ’হ লাইব্রেরী</h1>
-  <p>আমরা ওয়েবসাইটের জন্য কাজ করছি।<br>
-  খুব শীঘ্রই, ইনশাআল্লাহ এটি প্রকাশিত হবে!<br>
-  ধৈর্য ধরুন এবং আমাদের সাথে থাকুন। 🌸✨</p>
-  <script>
-    const percentage = document.querySelector('.percentage');
-    let value = 0;
-    setInterval(() => {
-      value += 1;
-      if(value > 100) value = 0;
-      percentage.textContent = value + '%';
-    }, 40);
-  </script>
+    <div class="circular-img">
+        <a href="https://ibb.co.com/Yrhy6tq" target="_blank">
+            <img src="https://i.ibb.co.com/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="Website Coming Soon">
+        </a>
+    </div>
+    <h1>আমরা বর্তমানে আমাদের ওয়েবসাইটের উপর কাজ করছি। খুব শীঘ্রই এটি প্রকাশিত হবে, ইনশাআল্লাহ।</h1>
 </body>
 </html>
