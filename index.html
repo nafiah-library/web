@@ -13,7 +13,7 @@
             min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #ffffff; /* white background */
+            background: #ffffff;
             text-align: center;
             color: #333333;
             padding: 20px;
@@ -27,11 +27,14 @@
             border: 5px solid #ffffff;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             margin-bottom: 20px;
+            position: relative;
         }
         .circular-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            pointer-events: none; /* Prevent right-click on image */
+            user-select: none;    /* Prevent copy */
         }
         h1 {
             font-size: 20px;
@@ -57,11 +60,18 @@
 </head>
 <body>
     <div class="circular-img">
-        <a href="https://ibb.co.com/Yrhy6tq" target="_blank">
-            <img src="https://i.ibb.co.com/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="Website Coming Soon">
-        </a>
+        <img src="https://i.ibb.co.com/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="Website Coming Soon">
     </div>
     <h1>আমরা বর্তমানে আমাদের ওয়েবসাইটের উপর কাজ করছি। খুব শীঘ্রই এটি প্রকাশিত হবে, ইনশাআল্লাহ।</h1>
     <footer>© Nafi'ah Library since 2025</footer>
+
+    <script>
+        // Disable right-click on entire page
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Optional: Disable dragging the image
+        const img = document.querySelector('.circular-img img');
+        img.ondragstart = () => false;
+    </script>
 </body>
 </html>
