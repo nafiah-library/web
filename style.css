@@ -1,208 +1,258 @@
-/* ===================== Google Font ===================== */
-@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap');
-
-/* ===================== Global ===================== */
+/* -------------------------- */
+/* General Reset & Fonts */
+/* -------------------------- */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans Bengali', sans-serif;
 }
 
+/* -------------------------- */
+/* Body & Background */
+/* -------------------------- */
 body {
-  font-family: 'Hind Siliguri', sans-serif;
-  background: #f7f7f7;
-  color: #222;
+    background: linear-gradient(135deg, #007bff, #00b4d8);
+    color: white;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
-/* ===================== Header ===================== */
+/* -------------------------- */
+/* Navigation */
+/* -------------------------- */
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 10;
+}
+
+nav a {
+    color: #eaf6ff;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #cde9ff;
+}
+
+nav a.active {
+    border-bottom: 2px solid white;
+    padding-bottom: 4px;
+}
+
+/* -------------------------- */
+/* Header */
+/* -------------------------- */
 header {
-  background: #7a0d0d;
-  color: #fff;
-  padding: 12px 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
+    padding: 100px 20px 60px 20px;
 }
 
 header img {
-  height: 50px;
+    width: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
 }
 
-header h3 {
-  font-size: 20px;
-  margin-left: 10px;
-  flex: 1;
+header h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
-/* ===================== Menu Button ===================== */
-.menu-btn {
-  font-size: 28px;
-  cursor: pointer;
-  user-select: none;
+header p {
+    font-size: 1.1em;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
 }
 
-/* ===================== Drawer ===================== */
-.drawer {
-  position: fixed;
-  top: 0;
-  left: -260px;
-  width: 250px;
-  height: 100%;
-  background: #fff;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.3);
-  transition: 0.3s;
-  padding: 20px 10px;
-  z-index: 999;
+/* -------------------------- */
+/* Glass Box Section */
+/* -------------------------- */
+.glass-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 900px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
-.drawer a {
-  display: block;
-  padding: 12px 10px;
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  border-bottom: 1px solid #eee;
-  transition: 0.2s;
+.glass-box h1, .glass-box h2, .glass-box h3 {
+    color: #ffffff;
 }
 
-.drawer a:hover {
-  background: #f0f0f0;
-  color: #7a0d0d;
+.glass-box p {
+    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.8;
+    opacity: 0.95;
+    margin-bottom: 20px;
 }
 
-/* ===================== Search ===================== */
-.search {
-  padding: 15px;
-}
+/* -------------------------- */
+/* Headings hierarchy */
+/* -------------------------- */
+h1 { font-size: 2.4em; margin-bottom: 15px; }
+h2 { font-size: 1.8em; margin: 30px 0 10px; }
+h3 { font-size: 1.4em; margin: 20px 0 8px; }
 
-.search input {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-/* ===================== Category List ===================== */
-.category-list {
-  padding: 10px 15px;
-}
-
-.category-item {
-  background: #fff;
-  padding: 14px 16px;
-  margin: 10px 0;
-  font-size: 18px;
-  border-left: 6px solid #7a0d0d;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: 0.2s;
-}
-
-.category-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-/* ===================== Book Grid ===================== */
-.book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 15px;
-  padding: 15px;
-}
-
-/* ===================== Book Card ===================== */
-.book {
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: 0.3s;
-  display: flex;
-  flex-direction: column;
-}
-
-.book:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-}
-
-.book img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-bottom: 1px solid #eee;
-}
-
-.book h4 {
-  font-size: 15px;
-  margin: 10px;
-  flex: 1;
-  text-align: center;
-}
-
-/* ===================== Book Details / Modal ===================== */
-.details {
-  padding: 15px;
-  background: #fff;
-  margin: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.details img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.details h2 {
-  margin-top: 12px;
-  font-size: 22px;
-  text-align: center;
-}
-
-.details p {
-  font-size: 16px;
-  margin: 8px 0;
-}
-
-/* ===================== Buttons ===================== */
+/* -------------------------- */
+/* Buttons */
+/* -------------------------- */
 .btn {
-  display: inline-block;
-  margin-top: 12px;
-  margin-right: 8px;
-  padding: 10px 16px;
-  background: #7a0d0d;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: 0.2s;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: 0.3s;
+    margin-top: 20px;
 }
 
 .btn:hover {
-  background: #5e0a0a;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
 }
 
-/* ===================== Responsive ===================== */
-@media (max-width: 480px) {
-  .book img {
-    height: 180px;
-  }
-  
-  header h3 {
-    font-size: 18px;
-  }
-  
-  .category-item {
-    font-size: 16px;
-  }
+/* -------------------------- */
+/* Book Grid / Cards */
+/* -------------------------- */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.book-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.book-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+
+.book-content {
+    padding: 18px 20px 25px;
+}
+
+.book-content h3 a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.book-content h3 a:hover {
+    color: #cde9ff;
+}
+
+.book-content p {
+    color: #eaf6ff;
+    font-size: 0.95em;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 10px 0 0;
+}
+
+/* -------------------------- */
+/* About Page */
+.about-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.05em;
+}
+
+.about-logo {
+    width: 140px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 25px rgba(255,255,255,0.2);
+}
+
+/* -------------------------- */
+/* Footer */
+/* -------------------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #e0f0ff;
+    opacity: 0.9;
+}
+
+/* -------------------------- */
+/* Responsive */
+/* -------------------------- */
+@media(max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    iframe {
+        height: 180px;
+    }
+
+    .glass-box {
+        padding: 25px;
+    }
+
+    .btn {
+        padding: 8px 18px;
+        font-size: 0.95em;
+    }
+
+    .book-card img {
+        height: 160px;
+    }
+
+    .book-grid {
+        gap: 15px;
+    }
+
+    .about-content {
+        padding: 15px;
+        font-size: 1em;
+    }
+
+    .about-logo {
+        width: 120px;
+    }
 }
