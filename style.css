@@ -52,17 +52,44 @@ nav a.active {
 }
 
 /* -------------------------- */
+/* Header (for Home) */
+/* -------------------------- */
+header {
+  text-align: center;
+  padding: 100px 20px 60px 20px;
+}
+
+header img {
+  width: 120px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.1em;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* -------------------------- */
 /* Glass Box Section */
 /* -------------------------- */
 .glass-box {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
   border-radius: 20px;
-  padding: 40px 25px;
+  padding: 40px;
   margin: 40px auto;
   max-width: 900px;
   text-align: center;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .glass-box h2 {
@@ -77,13 +104,14 @@ nav a.active {
 }
 
 /* -------------------------- */
-/* Topic Cards Grid */
+/* Topic Cards (Books Page) */
 /* -------------------------- */
 .topic-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
   justify-items: center;
+  margin-top: 25px;
 }
 
 .topic-card {
@@ -124,20 +152,16 @@ footer {
 }
 
 /* -------------------------- */
-/* Responsive (Mobile Friendly) */
+/* Responsive */
 /* -------------------------- */
 @media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2em;
+  }
+
   .glass-box {
     padding: 25px;
     margin: 20px;
-  }
-
-  .glass-box h2 {
-    font-size: 1.5em;
-  }
-
-  .glass-box p {
-    font-size: 0.95em;
   }
 
   .topic-grid {
