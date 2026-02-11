@@ -5,106 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Books | নাফি’আহ লাইব্রেরী</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      color: white;
-      background-color: #121212;
-      font-family: 'Noto Sans Bengali', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav {
-      background: rgba(255,255,255,0.05);
-      padding: 10px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 15px;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    nav a.active {
-      font-weight: bold;
-      color: #4CAF50;
-    }
-
-    .glass-box {
-      background: rgba(255,255,255,0.07);
-      padding: 20px;
-      border-radius: 16px;
-      margin: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    .topic-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .topic-card {
-      background: rgba(255,255,255,0.1);
-      padding: 16px 10px;
-      border-radius: 10px;
-      text-align: center;
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .topic-card:hover {
-      background: rgba(255,255,255,0.2);
-      transform: scale(1.05);
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      color: #aaa;
-      font-size: 14px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      margin-top: 30px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- Navigation -->
   <nav>
-      <a href="index.html">Home</a>
-      <a class="active" href="books.html">Topics</a>
-      <a href="about.html">About</a>
+    <a href="index.html">Home</a>
+    <a class="active" href="books.html">Topics</a>
+    <a href="about.html">About</a>
   </nav>
 
-  <!-- Topics Section Only -->
+  <!-- Topics Section -->
   <section class="glass-box">
-      <h2>বিষয়ভিত্তিক বইসমূহ</h2>
-      <p>নিচের বিষয়গুলোর মধ্যে ক্লিক করে সমস্ত বই দেখুন।</p>
-      <div class="topic-grid">
-          <a class="topic-card" href="topic-akidah.html">আকীদাহ ও মানহাজ</a>
-          <a class="topic-card" href="topic-fiqh.html">ফিকহ</a>
-          <a class="topic-card" href="topic-ibadat.html">ইবাদত ও আমল</a>
-          <a class="topic-card" href="topic-selfpurification.html">আত্মশুদ্ধি ও অনুপ্রেরণা</a>
-          <a class="topic-card" href="topic-sirah.html">সিরাহ</a>
-          <a class="topic-card" href="topic-novel.html">ইসলামী সাহিত্য ও উপন্যাস</a>
-          <a class="topic-card" href="topic-doa.html">দোয়া ও যিকির</a>
-          <a class="topic-card" href="topic-hajj-umrah.html">হজ্জ ও উমরাহ</a>
-      </div>
+    <h2>📚 বিষয়ভিত্তিক বইসমূহ</h2>
+    <p>নিচের বিষয়গুলোর মধ্যে ক্লিক করে সমস্ত বই দেখুন।</p>
+
+    <div class="topic-grid">
+      <a class="topic-card" href="topic-akidah.html">আকীদাহ ও মানহাজ</a>
+      <a class="topic-card" href="topic-fiqh.html">ফিকহ</a>
+      <a class="topic-card" href="topic-ibadat.html">ইবাদত ও আমল</a>
+      <a class="topic-card" href="topic-selfpurification.html">আত্মশুদ্ধি ও অনুপ্রেরণা</a>
+      <a class="topic-card" href="topic-sirah.html">সিরাহ</a>
+      <a class="topic-card" href="topic-novel.html">ইসলামী সাহিত্য ও উপন্যাস</a>
+      <a class="topic-card" href="topic-doa.html">দোয়া ও যিকির</a>
+      <a class="topic-card" href="topic-hajj-umrah.html">হজ্জ ও উমরাহ</a>
+    </div>
   </section>
 
   <footer>
