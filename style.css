@@ -254,3 +254,20 @@ footer {
         width: 120px;
     }
 }
+
+/* -------------------------- */
+/* Update Page Card */
+/* -------------------------- */
+.update-card{
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.15);
+  line-height: 1.7;
+}
+
+.update-card a{
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: underline;
+}
