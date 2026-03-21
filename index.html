@@ -100,12 +100,21 @@
 
 <!-- Script -->
 <script>
+  // Show popup only on new tab open, not on refresh/back
   window.onload = function () {
-    if (!localStorage.getItem("popupShown")) {
+    if (!sessionStorage.getItem("popupShown")) {
       document.getElementById("popup").style.display = "flex";
-      localStorage.setItem("popupShown", "true");
+      sessionStorage.setItem("popupShown", "true");
     }
   };
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+</body>  
+</html>  };
 
   function closePopup() {
     document.getElementById("popup").style.display = "none";
