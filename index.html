@@ -1,18 +1,18 @@
-<!DOCTYPE html>  
-<html lang="bn">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>নাফি’আহ লাইব্রেরী | Home</title>  
-  
-  <!-- Fonts -->  
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">  
-  
-  <!-- CSS -->  
-  <link rel="stylesheet" href="style.css">  
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>নাফি’আহ লাইব্রেরী | Home</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    /* Popup Background */
+    /* Popup background */
     .popup {
       position: fixed;
       top: 0;
@@ -26,25 +26,25 @@
       z-index: 9999;
     }
 
-    /* Popup Box */
+    /* Popup box */
     .popup-content {
       position: relative;
       width: 90%;
       max-width: 320px;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 1 / 1; /* 1:1 ratio */
       background: #fff;
       border-radius: 12px;
       overflow: hidden;
     }
 
-    /* Image */
+    /* Image inside popup */
     .popup-content img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    /* Close Button */
+    /* Close button */
     .close-btn {
       position: absolute;
       top: 8px;
@@ -58,9 +58,9 @@
       padding: 2px 8px;
     }
   </style>
-</head>  
+</head>
 
-<body>  
+<body>
 
 <!-- Popup Modal -->
 <div id="popup" class="popup">
@@ -70,42 +70,50 @@
   </div>
 </div>
 
-<!-- Navigation -->  
-<nav>  
-  <a class="active" href="index.html">Home</a>  
+<!-- Navigation -->
+<nav>
+  <a class="active" href="index.html">Home</a>
   <a href="books.html">Books</a>
-  <a href="about.html">About</a>  
-</nav>  
-  
-<!-- Header Section -->  
-<header>  
-  <img class="logo" src="https://i.ibb.co/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="নাফি’আহ লাইব্রেরী">  
-  
-  <h1>নাফি’আহ লাইব্রেরী</h1>  
-  
-  <p>  
-    আকীদাহ, ফিকহ, ইবাদত, আত্মশুদ্ধি, সিরাহ ও ইসলামী সাহিত্য বিষয়ক    
-    নির্বাচিত ও নির্ভরযোগ্য বইয়ের সংগ্রহশালা।    
-    আমাদের লাইব্রেরী আপনাকে জ্ঞান অর্জনে সাহায্য করবে।  
-  </p>  
-  
+  <a href="about.html">About</a>
+</nav>
+
+<!-- Header Section -->
+<header>
+  <img class="logo" src="https://i.ibb.co/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="নাফি’আহ লাইব্রেরী">
+
+  <h1>নাফি’আহ লাইব্রেরী</h1>
+
+  <p>
+    আকীদাহ, ফিকহ, ইবাদত, আত্মশুদ্ধি, সিরাহ ও ইসলামী সাহিত্য বিষয়ক
+    নির্বাচিত ও নির্ভরযোগ্য বইয়ের সংগ্রহশালা।
+    আমাদের লাইব্রেরী আপনাকে জ্ঞান অর্জনে সাহায্য করবে।
+  </p>
+
   <a href="books.html" class="btn">বইসমূহ দেখুন</a>
   <a href="update.html" class="btn">সর্বশেষ আপডেট</a>
-</header>  
-  
-<!-- Footer -->  
-<footer>  
-  © Nafi'ah Library since 2025  
-</footer>  
+</header>
+
+<!-- Footer -->
+<footer>
+  © Nafi'ah Library since 2025
+</footer>
 
 <!-- Script -->
 <script>
-  // Show popup only on new tab open, not on refresh/back
+  // Show popup only on new tab/page load
   window.onload = function () {
-    if (!sessionStorage.getItem("popupShown")) {
+    if (!performance.getEntriesByType("navigation")[0].type.includes("reload")) {
       document.getElementById("popup").style.display = "flex";
-      sessionStorage.setItem("popupShown", "true");
     }
+  };
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+</body>
+</html>    }
   };
 
   function closePopup() {
