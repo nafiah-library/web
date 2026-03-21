@@ -100,12 +100,21 @@
 
 <!-- Script -->
 <script>
-  // Show popup only on new tab/page load
-  window.onload = function () {
-    if (!performance.getEntriesByType("navigation")[0].type.includes("reload")) {
+  // Show popup only on new tab/page load, not on refresh or back
+  window.addEventListener('load', function() {
+    const navType = performance.getEntriesByType("navigation")[0].type;
+    if (!navType.includes("reload") && !navType.includes("back_forward")) {
       document.getElementById("popup").style.display = "flex";
     }
-  };
+  });
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+</body>
+</html>  };
 
   function closePopup() {
     document.getElementById("popup").style.display = "none";
