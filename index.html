@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>নাফি’আহ লাইব্রেরী | Home</title>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 
   <style>
     /* Popup background */
@@ -16,7 +20,7 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.7);
-      display: none; /* Hidden by default */
+      display: none;
       justify-content: center;
       align-items: center;
       z-index: 9999;
@@ -27,7 +31,7 @@
       position: relative;
       width: 90%;
       max-width: 320px;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 1 / 1; /* 1:1 ratio */
       background: #fff;
       border-radius: 12px;
       overflow: hidden;
@@ -51,22 +55,14 @@
       cursor: pointer;
       background: #fff;
       border-radius: 50%;
-      padding: 0px 10px;
-      line-height: 1.2;
+      padding: 2px 8px;
     }
-    
-    /* Simple nav/header styles to keep layout clean */
-    nav { padding: 10px; background: #f4f4f4; text-align: center; }
-    nav a { margin: 0 10px; text-decoration: none; color: #333; }
-    header { text-align: center; padding: 50px 20px; }
-    .logo { width: 100px; border-radius: 50%; }
-    .btn { display: inline-block; padding: 10px 20px; background: #2c3e50; color: white; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-    footer { text-align: center; padding: 20px; font-size: 0.9em; color: #666; }
   </style>
 </head>
 
 <body>
 
+<!-- Popup Modal -->
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="close-btn" onclick="closePopup()">&times;</span>
@@ -74,38 +70,51 @@
   </div>
 </div>
 
+<!-- Navigation -->
 <nav>
   <a class="active" href="index.html">Home</a>
   <a href="books.html">Books</a>
   <a href="about.html">About</a>
 </nav>
 
+<!-- Header Section -->
 <header>
   <img class="logo" src="https://i.ibb.co/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="নাফি’আহ লাইব্রেরী">
+
   <h1>নাফি’আহ লাইব্রেরী</h1>
+
   <p>
     আকীদাহ, ফিকহ, ইবাদত, আত্মশুদ্ধি, সিরাহ ও ইসলামী সাহিত্য বিষয়ক
     নির্বাচিত ও নির্ভরযোগ্য বইয়ের সংগ্রহশালা।
+    আমাদের লাইব্রেরী আপনাকে জ্ঞান অর্জনে সাহায্য করবে।
   </p>
+
   <a href="books.html" class="btn">বইসমূহ দেখুন</a>
   <a href="update.html" class="btn">সর্বশেষ আপডেট</a>
 </header>
 
+<!-- Footer -->
 <footer>
   © Nafi'ah Library since 2025
 </footer>
 
+<!-- Script -->
 <script>
-  // Show popup only on fresh navigation
+  // Show popup only on new tab/page load, not on refresh or back
   window.addEventListener('load', function() {
-    const navigation = performance.getEntriesByType("navigation")[0];
-    if (navigation) {
-      const navType = navigation.type;
-      if (navType !== "reload" && navType !== "back_forward") {
-        document.getElementById("popup").style.display = "flex";
-      }
+    const navType = performance.getEntriesByType("navigation")[0].type;
+    if (!navType.includes("reload") && !navType.includes("back_forward")) {
+      document.getElementById("popup").style.display = "flex";
     }
   });
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+</body>
+</html>  });
 
   // Function to close the popup
   function closePopup() {
