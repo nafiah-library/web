@@ -10,9 +10,66 @@
   
   <!-- CSS -->  
   <link rel="stylesheet" href="style.css">  
+
+  <style>
+    /* Popup Background */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    /* Popup Box */
+    .popup-content {
+      position: relative;
+      width: 90%;
+      max-width: 320px;
+      aspect-ratio: 1 / 1;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* Image */
+    .popup-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Close Button */
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      background: #fff;
+      border-radius: 50%;
+      padding: 2px 8px;
+    }
+  </style>
 </head>  
+
 <body>  
-  
+
+<!-- Popup Modal -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <img src="https://i.ibb.co.com/BVw068f0/1-20260321-115450-0000.png" alt="Popup Image">
+  </div>
+</div>
+
 <!-- Navigation -->  
 <nav>  
   <a class="active" href="index.html">Home</a>  
@@ -33,13 +90,27 @@
   </p>  
   
   <a href="books.html" class="btn">বইসমূহ দেখুন</a>
-  <a href="update.html" class="btn">সর্বশেষ আপডেট</a> <!-- New Update Button -->
+  <a href="update.html" class="btn">সর্বশেষ আপডেট</a>
 </header>  
   
 <!-- Footer -->  
 <footer>  
   © Nafi'ah Library since 2025  
 </footer>  
-  
+
+<!-- Script -->
+<script>
+  window.onload = function () {
+    if (!localStorage.getItem("popupShown")) {
+      document.getElementById("popup").style.display = "flex";
+      localStorage.setItem("popupShown", "true");
+    }
+  };
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
 </body>  
 </html>
