@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>নাফি’আহ লাইব্রেরী | Home</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
   <style>
@@ -62,22 +60,19 @@
 
 <body>
 
-<!-- Popup Modal -->
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="close-btn" onclick="closePopup()">&times;</span>
-    <img src="https://i.ibb.co.com/BVw068f0/1-20260321-115450-0000.png" alt="Popup Image">
+    <img src="https://i.ibb.co.com/sJ9WP0BJ/1000084745.jpg" alt="Popup Image">
   </div>
 </div>
 
-<!-- Navigation -->
 <nav>
   <a class="active" href="index.html">Home</a>
   <a href="books.html">Books</a>
   <a href="about.html">About</a>
 </nav>
 
-<!-- Header Section -->
 <header>
   <img class="logo" src="https://i.ibb.co/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="নাফি’আহ লাইব্রেরী">
 
@@ -93,18 +88,26 @@
   <a href="update.html" class="btn">সর্বশেষ আপডেট</a>
 </header>
 
-<!-- Footer -->
 <footer>
   © Nafi'ah Library since 2025
 </footer>
 
-<!-- Script -->
 <script>
   // Show popup only on new tab/page load, not on refresh or back
   window.addEventListener('load', function() {
     const navType = performance.getEntriesByType("navigation")[0].type;
     if (!navType.includes("reload") && !navType.includes("back_forward")) {
       document.getElementById("popup").style.display = "flex";
+    }
+  });
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
     }
   });
 
