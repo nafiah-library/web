@@ -54,6 +54,7 @@
       background: #fff;
       border-radius: 50%;
       padding: 2px 8px;
+      z-index: 10;
     }
   </style>
 </head>
@@ -63,7 +64,9 @@
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="close-btn" onclick="closePopup()">&times;</span>
-    <img src="https://i.ibb.co.com/sJ9WP0BJ/1000084745.jpg" alt="Popup Image">
+    <a href="https://ibb.co.com/q3nyBmSy" target="_blank">
+      <img src="https://i.ibb.co.com/4nfmW4qm/1-20260527-204019-0000.png" alt="Popup Image" border="0">
+    </a>
   </div>
 </div>
 
@@ -95,8 +98,15 @@
 <script>
   // Show popup only on new tab/page load, not on refresh or back
   window.addEventListener('load', function() {
-    const navType = performance.getEntriesByType("navigation")[0].type;
-    if (!navType.includes("reload") && !navType.includes("back_forward")) {
+    // Check if performance navigation API is available
+    const navEntries = performance.getEntriesByType("navigation");
+    if (navEntries.length > 0) {
+      const navType = navEntries[0].type;
+      if (!navType.includes("reload") && !navType.includes("back_forward")) {
+        document.getElementById("popup").style.display = "flex";
+      }
+    } else {
+      // Fallback for older browsers
       document.getElementById("popup").style.display = "flex";
     }
   });
@@ -105,6 +115,9 @@
     document.getElementById("popup").style.display = "none";
   }
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
