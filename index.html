@@ -1,177 +1,114 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>নাফি’আহ লাইব্রেরী | Home</title>
+<!DOCTYPE html>  
+<html lang="bn">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>নাফি’আহ লাইব্রেরী | Home</title>    
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">    
+  <link rel="stylesheet" href="style.css">    
+  <style>  
+    /* Popup background */  
+    .popup {  
+      position: fixed;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      background: rgba(0, 0, 0, 0.7);  
+      display: none;  
+      justify-content: center;  
+      align-items: center;  
+      z-index: 9999;  
+    }  
+  
+    /* Popup box */  
+    .popup-content {  
+      position: relative;  
+      width: 90%;  
+      max-width: 320px;  
+      aspect-ratio: 1 / 1; /* 1:1 ratio */  
+      background: #fff;  
+      border-radius: 12px;  
+      overflow: hidden;  
+    }  
+  
+    /* Image inside popup */  
+    .popup-content img {  
+      width: 100%;  
+      height: 100%;  
+      object-fit: cover;  
+      /* ইউজার যাতে ইমেজ ড্র্যাগ করে পিসিতে বা ফোনে সেভ করতে না পারে */
+      user-select: none;
+      -webkit-user-drag: none;
+    }  
+  
+    /* Close button */  
+    .close-btn {  
+      position: absolute;  
+      top: 8px;  
+      right: 12px;  
+      font-size: 24px;  
+      font-weight: bold;  
+      color: #000;  
+      cursor: pointer;  
+      background: #fff;  
+      border-radius: 50%;  
+      padding: 2px 8px;  
+      z-index: 10;  
+    }  
+  </style>  
+</head>  
+<body>  
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<div id="popup" class="popup">  
+  <div class="popup-content">  
+    <span class="close-btn" onclick="closePopup()">&times;</span>  
+    <img src="https://i.ibb.co.com/HD2wYgz0/1-20260528-061323-0000.png" alt="Popup Image" border="0" oncontextmenu="return false;" ondragstart="return false;">  
+  </div>  
+</div>  
 
-  <link rel="stylesheet" href="style.css">
+<nav>  
+  <a class="active" href="index.html">Home</a>  
+  <a href="books.html">Books</a>  
+  <a href="about.html">About</a>  
+</nav>  
 
-  <style>
-    /* Popup background */
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    /* Popup box */
-    .popup-content {
-      position: relative;
-      width: 90%;
-      max-width: 320px;
-      aspect-ratio: 1 / 1; /* 1:1 ratio */
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    /* Image inside popup */
-    .popup-content img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Close button */
-    .close-btn {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #000;
-      cursor: pointer;
-      background: #fff;
-      border-radius: 50%;
-      padding: 2px 8px;
-      z-index: 10;
-    }
-  </style>
-</head>
-
-<body>
-
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-    <a href="https://ibb.co.com/q3nyBmSy" target="_blank">
-      <img src="https://i.ibb.co.com/4nfmW4qm/1-20260527-204019-0000.png" alt="Popup Image" border="0">
-    </a>
-  </div>
-</div>
-
-<nav>
-  <a class="active" href="index.html">Home</a>
-  <a href="books.html">Books</a>
-  <a href="about.html">About</a>
-</nav>
-
-<header>
-  <img class="logo" src="https://i.ibb.co/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="নাফি’আহ লাইব্রেরী">
-
-  <h1>নাফি’আহ লাইব্রেরী</h1>
-
-  <p>
-    আকীদাহ, ফিকহ, ইবাদত, আত্মশুদ্ধি, সিরাহ ও ইসলামী সাহিত্য বিষয়ক
-    নির্বাচিত ও নির্ভরযোগ্য বইয়ের সংগ্রহশালা।
-    আমাদের লাইব্রেরী আপনাকে জ্ঞান অর্জনে সাহায্য করবে।
-  </p>
-
+<header>  
+  <img class="logo" src="https://i.ibb.co/DqQ8N7S/Picsart-25-08-08-14-57-20-642.jpg" alt="নাফি’আহ লাইব্রেরী">    
+  <h1>নাফি’আহ লাইব্রেরী</h1>    
+  <p>  
+    আকীদাহ, ফিকহ, ইবাদত, আত্মশুদ্ধি, সিরাহ ও ইসলামী সাহিত্য বিষয়ক  
+    নির্বাচিত ও নির্ভরযোগ্য বইয়ের সংগ্রহশালা।  
+    আমাদের লাইব্রেরী আপনাকে জ্ঞান অর্জনে সাহায্য করবে।  
+  </p>  
   <a href="books.html" class="btn">বইসমূহ দেখুন</a>
   <a href="update.html" class="btn">সর্বশেষ আপডেট</a>
-</header>
+</header>  
 
-<footer>
-  © Nafi'ah Library since 2025
-</footer>
+<footer>  
+  © Nafi'ah Library since 2025  
+</footer>  
 
-<script>
-  // Show popup only on new tab/page load, not on refresh or back
-  window.addEventListener('load', function() {
-    // Check if performance navigation API is available
-    const navEntries = performance.getEntriesByType("navigation");
-    if (navEntries.length > 0) {
-      const navType = navEntries[0].type;
-      if (!navType.includes("reload") && !navType.includes("back_forward")) {
-        document.getElementById("popup").style.display = "flex";
-      }
-    } else {
-      // Fallback for older browsers
-      document.getElementById("popup").style.display = "flex";
-    }
-  });
-
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
-
-</body>
-</html>
-
-</body>
-</html>
-    }
-  });
-
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
-
-</body>
-</html>  });
-
-  // Function to close the popup
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
-
-</body>
-</html>
-    }
-  });
-
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
-
-</body>
-</html>  };
-
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
-
-</body>
-</html>    }
-  };
-
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
-
-</body>  
-</html>  };
-
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
+<script>  
+  // Show popup only on new tab/page load, not on refresh or back  
+  window.addEventListener('load', function() {  
+    // Check if performance navigation API is available  
+    const navEntries = performance.getEntriesByType("navigation");  
+    if (navEntries.length > 0) {  
+      const navType = navEntries[0].type;  
+      if (!navType.includes("reload") && !navType.includes("back_forward")) {  
+        document.getElementById("popup").style.display = "flex";  
+      }  
+    } else {  
+      // Fallback for older browsers  
+      document.getElementById("popup").style.display = "flex";  
+    }  
+  });  
+  
+  function closePopup() {  
+    document.getElementById("popup").style.display = "none";  
+  }  
+</script>  
 
 </body>  
 </html>
