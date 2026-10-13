@@ -20,7 +20,6 @@
 <meta property="og:url" content="https://nafiahlibrary.com/about">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="bn_BD">
-<link rel="canonical" href="https://nafiahlibrary.com/about">
 <link rel="icon" href="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg">
 <title>পরিচিতি — Nafi'ah Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -129,10 +128,10 @@ footer .fl:hover img{transform:scale(1.05)}
 <body>
 <header class="rv" style="--i:0">
 <nav class="links" aria-label="প্রধান মেনু">
-<a href="/">হোম</a>
-<a href="/books">বই</a>
-<a href="/wishlist" id="navwl">উইশলিস্ট</a>
-<a href="/about" class="cur" aria-current="page">পরিচিতি</a>
+<a href="index.html">হোম</a>
+<a href="books.html">বই</a>
+<a href="wishlist.html" id="navwl">উইশলিস্ট</a>
+<a href="about.html" class="cur" aria-current="page">পরিচিতি</a>
 </nav>
 </header>
 <main>
@@ -171,11 +170,11 @@ footer .fl:hover img{transform:scale(1.05)}
 </a>
 </div>
 
-<div class="cta-wrap rv" style="--i:12"><a class="cta-btn" id="cta" href="/books">বইসমূহ দেখুন</a></div>
+<div class="cta-wrap rv" style="--i:12"><a class="cta-btn" id="cta" href="books.html">বইসমূহ দেখুন</a></div>
 </main>
 
 <footer class="rv" style="--i:13">
-<a class="fl" href="/" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/RkKNgBzP/IMG-20261012-191353.png" alt="Nafi'ah Library Logo" decoding="async"></a>
+<a class="fl" href="index.html" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/RkKNgBzP/IMG-20261012-191353.png" alt="Nafi'ah Library Logo" decoding="async"></a>
 <div class="fline"></div>
 <p>© Nafi'ah Library since 2025</p>
 <p>Build by <button class="mc" id="mc" type="button" aria-haspopup="dialog">Matrix Craft</button></p>
@@ -244,7 +243,7 @@ $("#cta").addEventListener("click",function(e){
   var b=this;
   if(b.classList.contains("on"))return;
   b.classList.add("on");fx(b,e);
-  setTimeout(function(){location.href="/books"},reduce?0:GO);
+  setTimeout(function(){location.href="books.html"},reduce?0:GO);
 });
 
 /* Matrix Craft popup */
