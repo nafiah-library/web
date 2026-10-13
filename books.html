@@ -20,7 +20,6 @@
 <meta property="og:url" content="https://nafiahlibrary.com/books">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="bn_BD">
-<link rel="canonical" href="https://nafiahlibrary.com/books">
 <link rel="icon" href="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg">
 <title>বইসমূহ — Nafi'ah Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -157,10 +156,10 @@ footer .fl:hover img{transform:scale(1.05)}
 <body>
 <header class="rv" style="--i:0">
 <nav class="links" aria-label="প্রধান মেনু">
-<a href="/">হোম</a>
-<a href="/books" class="cur" aria-current="page">বই</a>
-<a href="/wishlist" id="navwl">উইশলিস্ট</a>
-<a href="/about">পরিচিতি</a>
+<a href="index.html">হোম</a>
+<a href="books.html" class="cur" aria-current="page">বই</a>
+<a href="wishlist.html" id="navwl">উইশলিস্ট</a>
+<a href="about.html">পরিচিতি</a>
 </nav>
 </header>
 <main>
@@ -188,7 +187,7 @@ footer .fl:hover img{transform:scale(1.05)}
 </main>
 
 <footer class="rv" style="--i:4">
-<a class="fl" href="/" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/RkKNgBzP/IMG-20261012-191353.png" alt="Nafi'ah Library Logo" decoding="async"></a>
+<a class="fl" href="index.html" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/RkKNgBzP/IMG-20261012-191353.png" alt="Nafi'ah Library Logo" decoding="async"></a>
 <div class="fline"></div>
 <p>© Nafi'ah Library since 2025</p>
 <p>Build by <button class="mc" id="mc" type="button" aria-haspopup="dialog">Matrix Craft</button></p>
@@ -208,8 +207,8 @@ var $=function(s,r){return (r||document).querySelector(s)},
     fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
 function vib(n){try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}}
 
-var DATA_URL="/books.json";           /* বইয়ের ডাটা ফাইল */
-var DETAILS_URL="/book-details.html"; /* ডিটেইলস পেজ: ?id=... */
+var DATA_URL="books.json";           /* বইয়ের ডাটা ফাইল */
+var DETAILS_URL="book-details.html"; /* ডিটেইলস পেজ: ?id=... */
 var ALL="সব";
 var GO=850; /* অ্যানিমেশন (রিপল ০.৬s, স্পার্ক ০.৭s, শাইন ০.৯s) শেষ হওয়া পর্যন্ত অপেক্ষা */
 
