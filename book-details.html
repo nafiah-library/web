@@ -129,10 +129,10 @@ footer .fl:hover img{transform:scale(1.05)}
 <body>
 <header class="rv" style="--i:0">
 <nav class="links" aria-label="প্রধান মেনু">
-<a href="/">হোম</a>
-<a href="/books" class="cur" aria-current="page">বই</a>
-<a href="/wishlist" id="navwl">উইশলিস্ট</a>
-<a href="/about">পরিচিতি</a>
+<a href="index.html">হোম</a>
+<a href="books.html" class="cur" aria-current="page">বই</a>
+<a href="wishlist.html" id="navwl">উইশলিস্ট</a>
+<a href="about.html">পরিচিতি</a>
 </nav>
 </header>
 <main id="main">
@@ -154,7 +154,7 @@ footer .fl:hover img{transform:scale(1.05)}
 </article>
 </main>
 <footer class="rv" style="--i:11">
-<a class="fl" href="/" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg" alt="Nafi'ah Library" decoding="async"></a>
+<a class="fl" href="index.html" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg" alt="Nafi'ah Library" decoding="async"></a>
 <div class="fline"></div>
 <p>© Nafi'ah Library since 2025</p>
 <p>Build by <button class="mc" id="mc" type="button" aria-haspopup="dialog">Matrix Craft</button></p>
@@ -285,13 +285,13 @@ cd.addEventListener("pointermove",function(e){var r=cd.getBoundingClientRect();c
 }
 
 /* ---------- dynamic data: /books.json?id=... ---------- */
-var DATA_URL="/books.json";
+var DATA_URL="books.json";
 var loading=$("#loading"),card=$("#card");
 
 function setMeta(sel,attr,val){var m=$(sel);if(m)m.setAttribute(attr,val)}
 
 function fail(title,text,retry){
-loading.innerHTML="<b>"+esc(title)+"</b>"+esc(text)+"<br>"+(retry?'<button class="back" type="button" id="rt">আবার চেষ্টা করুন</button>':'<a class="back" href="/books">সব বই দেখুন</a>');
+loading.innerHTML="<b>"+esc(title)+"</b>"+esc(text)+"<br>"+(retry?'<button class="back" type="button" id="rt">আবার চেষ্টা করুন</button>':'<a class="back" href="books.html">সব বই দেখুন</a>');
 var rt=$("#rt");if(rt)rt.addEventListener("click",function(){location.reload()});
 }
 
