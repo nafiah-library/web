@@ -21,7 +21,6 @@
 <meta property="og:url" content="https://nafiahlibrary.com/wishlist">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="bn_BD">
-<link rel="canonical" href="https://nafiahlibrary.com/wishlist">
 <link rel="icon" href="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg">
 <title>উইশলিস্ট — Nafi'ah Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -161,10 +160,10 @@ footer .fl:hover img{transform:scale(1.05)}
 <body>
 <header class="rv" style="--i:0">
 <nav class="links" aria-label="প্রধান মেনু">
-<a href="/">হোম</a>
-<a href="/books">বই</a>
-<a href="/wishlist" id="navwl" class="cur" aria-current="page">উইশলিস্ট</a>
-<a href="/about">পরিচিতি</a>
+<a href="index.html">হোম</a>
+<a href="books.html">বই</a>
+<a href="wishlist.html" id="navwl" class="cur" aria-current="page">উইশলিস্ট</a>
+<a href="about.html">পরিচিতি</a>
 </nav>
 </header>
 <main>
@@ -186,12 +185,12 @@ footer .fl:hover img{transform:scale(1.05)}
 <div class="empty glass" id="empty" hidden>
 <b>আপনার উইশলিস্ট এখন খালি</b>
 <p>বইয়ের পেজে গিয়ে "উইশলিস্টে যুক্ত করুন" বাটন চাপলে বইটি এখানে জমা হবে।</p>
-<a class="cta-btn" id="cta" href="/books">বইসমূহ দেখুন</a>
+<a class="cta-btn" id="cta" href="books.html">বইসমূহ দেখুন</a>
 </div>
 </main>
 
 <footer class="rv" style="--i:4">
-<a class="fl" href="/" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/RkKNgBzP/IMG-20261012-191353.png" alt="Nafi'ah Library Logo" decoding="async"></a>
+<a class="fl" href="index.html" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/RkKNgBzP/IMG-20261012-191353.png" alt="Nafi'ah Library Logo" decoding="async"></a>
 <div class="fline"></div>
 <p>© Nafi'ah Library since 2025</p>
 <p>Build by <button class="mc" id="mc" type="button" aria-haspopup="dialog">Matrix Craft</button></p>
@@ -214,7 +213,7 @@ function vib(n){try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}}
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function bn(n){return Number(n).toLocaleString("bn-BD")}
 
-var LK="nafiah_wishlist",DATA_URL="/books.json",DETAILS_URL="/book-details.html";
+var LK="nafiah_wishlist",DATA_URL="books.json",DETAILS_URL="book-details.html";
 var GO=850; /* অ্যানিমেশন শেষ হওয়া পর্যন্ত অপেক্ষা */
 
 var grid=$("#grid"),countEl=$("#count"),emptyEl=$("#empty"),clr=$("#clr"),clrt=$("#clrt");
@@ -358,7 +357,7 @@ $("#cta").addEventListener("click",function(e){
   var b=this;
   if(b.classList.contains("on"))return;
   b.classList.add("on");fx(b,e);
-  setTimeout(function(){location.href="/books"},reduce?0:GO);
+  setTimeout(function(){location.href="books.html"},reduce?0:GO);
 });
 
 /* ---- Matrix Craft popup ---- */
