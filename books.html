@@ -183,7 +183,7 @@ footer .fl:hover img{transform:scale(1.05)}
 </ul>
 
 <div class="msg glass" id="empty"><b>কোনো বই পাওয়া যায়নি</b>অন্য শব্দ দিয়ে খুঁজুন অথবা বিভাগ পরিবর্তন করুন।</div>
-<div class="msg glass" id="err"><b>বইয়ের তালিকা লোড করা যায়নি</b>ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন।<br><button class="retry" id="retry" type="button">আবার চেষ্টা করুন</button></div>
+<div class="msg glass" id="err"><b>বইয়ের তালিকা লোড করা যায়নি</b>ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন।<br><small id="errd" style="display:block;margin-top:6px"></small><button class="retry" id="retry" type="button">আবার চেষ্টা করুন</button></div>
 </main>
 
 <footer class="rv" style="--i:4">
@@ -277,9 +277,11 @@ function load(){
     if(c&&books.some(function(b){return b.category===c})){cat=c;buildChips()}
     if(q){term=q;qEl.value=q}
     render();
-  }).catch(function(){
+  }).catch(function(err){
     grid.innerHTML="";grid.setAttribute("aria-busy","false");
     countEl.textContent="";errEl.classList.add("show");
+    var d=$("#errd");
+    if(d)d.textContent=err&&err.name==="SyntaxError"?"কারণ: books.json ফাইলের লেখায় ভুল আছে (JSON ঠিক নেই)।":(err&&/^\d+$/.test(err.message)?"কারণ: books.json ফাইলটি পাওয়া যায়নি (কোড "+err.message+")।":"কারণ: books.json ফাইলটি আনা যায়নি।");
   });
 }
 $("#retry").addEventListener("click",function(e){
