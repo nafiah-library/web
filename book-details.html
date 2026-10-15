@@ -154,51 +154,7 @@ footer .fl:hover img{transform:scale(1.05)}
 </article>
 </main>
 <footer class="rv" style="--i:11">
-<a class="fl" href="index.html" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg" alt="Nafi'ah Library" decoding="async"></a>
-<div class="fline"></div>
-<p>© Nafi'ah Library since 2025</p>
-<p>Build by <button class="mc" id="mc" type="button" aria-haspopup="dialog">Matrix Craft</button></p>
-</footer>
-<div id="pop" class="mpop" aria-hidden="true">
-<div class="pcard glass" role="dialog" aria-modal="true" aria-labelledby="pt">
-<button class="px" id="px" type="button" aria-label="বন্ধ করুন">×</button>
-<h3 id="pt">Matrix Craft</h3>
-<p>Matrix Craft হলো M. A. Hamza কর্তৃক প্রতিষ্ঠিত একটি সৃজনশীল ডিজিটাল প্রতিষ্ঠান, যার মাধ্যমে ভিডিও এডিটিং, গ্রাফিক্স ডিজাইন, ওয়েবসাইট তৈরি, বই ফরম্যাটিং ও প্রকাশনাসহ বিভিন্ন ডিজিটাল সেবা প্রদান করা হয়।</p>
-</div>
-</div>
-<div id="toast" class="glass" role="status" aria-live="polite"></div>
-
-</style>
-</head>
-<body>
-<header class="rv" style="--i:0">
-<nav class="links" aria-label="প্রধান মেনু">
-<a href="index.html">হোম</a>
-<a href="books.html" class="cur" aria-current="page">বই</a>
-<a href="wishlist.html" id="navwl">উইশলিস্ট</a>
-<a href="about.html">পরিচিতি</a>
-</nav>
-</header>
-<main id="main">
-<div class="msg glass rv" style="--i:2" id="loading" role="status"><b>লোড হচ্ছে…</b>বইয়ের তথ্য আনা হচ্ছে।</div>
-<article class="card glass rv" style="--i:2" id="card" hidden>
-<div class="cover rv" style="--i:3" id="cover"><img class="fade" id="cimg" alt="" width="450" height="600" decoding="async"></div>
-<div>
-<div class="toprow rv" style="--i:4" id="toprow"><span class="chip shine" id="cat"></span></div>
-<h1 class="rv" style="--i:5" id="ttl"></h1>
-<p class="by rv" style="--i:6" id="by"></p>
-<div class="meta rv" style="--i:7" id="meta"></div>
-<div class="rv" style="--i:8" id="pk">
-<h2>এই বইয়ের জন্য উপলব্ধ প্যাকেজসমূহ</h2>
-<div class="days" id="days"></div>
-</div>
-<div class="wwrap rv" style="--i:9"><button class="wish" id="wish" type="button" aria-pressed="false"><span id="wl">উইশলিস্টে যুক্ত করুন</span></button><button class="shr shine" id="shr" type="button" aria-label="শেয়ার করুন"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button></div>
-<p class="note rv" style="--i:10">বই সংগ্রহের পদ্ধতি আমাদের কাছ থেকে জেনে নিন।<br>সদস্যপদ বা বই নেওয়ার আগে <a href="https://drive.google.com/file/d/1ROYMLlmQBTk0l94RppsKXvGF0dJnLAlO/view?usp=drivesdk" target="_blank" rel="noopener">পাঠচক্রের নিয়মাবলী ও গাইডলাইন</a> দেখুন।</p>
-</div>
-</article>
-</main>
-<footer class="rv" style="--i:11">
-<a class="fl" href="index.html" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg" alt="Nafi'ah Library" decoding="async"></a>
+<a class="fl" href="index.html" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/RkKNgBzP/IMG-20261012-191353.png" alt="Nafi'ah Library Logo" decoding="async"></a>
 <div class="fline"></div>
 <p>© Nafi'ah Library since 2025</p>
 <p>Build by <button class="mc" id="mc" type="button" aria-haspopup="dialog">Matrix Craft</button></p>
@@ -214,6 +170,14 @@ footer .fl:hover img{transform:scale(1.05)}
 
 <script>
 (function(){
+/* safety net: if this file is pasted/uploaded twice by mistake, run only once and drop the extra copy of the page */
+if(window.__nafiahInit)return;window.__nafiahInit=1;
+document.addEventListener("DOMContentLoaded",function(){
+  ["header","main","footer","#pop","#toast"].forEach(function(q){
+    var n=document.querySelectorAll(q);
+    for(var i=1;i<n.length;i++)n[i].remove();
+  });
+});
 var $=function(s,r){return (r||document).querySelector(s)},reduce=matchMedia("(prefers-reduced-motion:reduce)").matches,fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
 function vib(n){try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}}
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
