@@ -21,7 +21,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="bn_BD">
 <link rel="icon" href="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg">
-<title>বইসমূহ — Nafi'ah Library</title>
+<title>বইসমূহ — নাফি'আহ লাইব্রেরী</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -93,7 +93,7 @@ h1{font-size:2.1rem;line-height:1.25;margin:0 0 8px;background:linear-gradient(1
 .count{margin:18px 6px 12px;color:var(--mute);font-size:.92rem;min-height:1.6em}
 
 /* grid */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;list-style:none;margin:0;padding:0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;align-items:start;list-style:none;margin:0;padding:0}
 @media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr);gap:18px}}
 @media(min-width:880px){.grid{grid-template-columns:repeat(4,1fr)}}
 .grid li{display:flex;min-width:0}
@@ -101,9 +101,9 @@ h1{font-size:2.1rem;line-height:1.25;margin:0 0 8px;background:linear-gradient(1
 .bk{flex:1;display:flex;flex-direction:column;min-width:0;color:inherit;text-decoration:none;border-radius:18px;animation:bkin .6s var(--ease) backwards;animation-delay:var(--d,0ms);transition:transform .35s var(--ease),border-color .35s,background .35s,box-shadow .35s}
 .bk::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(96,165,250,.16),transparent 60%);opacity:0;transition:opacity .5s}
 .bk:active{transform:scale(.97)}
-.cv{position:relative;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;padding:14px;text-align:center;background:linear-gradient(160deg,#1e3a8a,#0f172a);overflow:hidden}
-.cv::before{content:"";position:absolute;inset:-12%;background:var(--cv) center/cover no-repeat;filter:blur(16px) brightness(.55);pointer-events:none}
-.cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.cv{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(160deg,#1e3a8a,#0f172a);overflow:hidden}
+.cv.np{aspect-ratio:3/4;padding:14px}
+.cv img{display:block;width:100%;height:auto}
 .cv .ph{font-weight:700;font-size:1.05rem;line-height:1.4;color:#dbeafe}
 .inf{display:flex;flex-direction:column;gap:2px;padding:12px 12px 14px}
 .tag{align-self:flex-start;max-width:100%;padding:2px 10px;margin-bottom:4px;border-radius:99px;font-size:.74rem;font-weight:600;color:#93c5fd;background:rgba(37,99,235,.22);border:1px solid rgba(147,197,253,.3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -113,7 +113,7 @@ h1{font-size:2.1rem;line-height:1.25;margin:0 0 8px;background:linear-gradient(1
 
 /* skeleton */
 .sk{border-radius:18px;overflow:hidden}
-.sk .cv{background:rgba(255,255,255,.05)}
+.sk .cv{background:rgba(255,255,255,.05);aspect-ratio:3/4}
 .sk .l{height:12px;border-radius:6px;margin:10px 12px 0;background:rgba(255,255,255,.07)}
 .sk .l.s{width:55%;margin-bottom:14px}
 .sk .cv,.sk .l{position:relative;overflow:hidden}
@@ -200,12 +200,20 @@ footer .fl:hover img{transform:scale(1.05)}
 <div class="pcard glass" role="dialog" aria-modal="true" aria-labelledby="pt">
 <button class="px" id="px" type="button" aria-label="বন্ধ করুন">×</button>
 <h3 id="pt">Matrix Craft</h3>
-<p>Matrix Craft হলো M. A. Hamza কর্তৃক প্রতিষ্ঠিত একটি সৃজনশীল ডিজিটাল প্রতিষ্ঠান, যার মাধ্যমে ভিডিও এডিটিং, গ্রাফিক্স ডিজাইন, ওয়েবসাইট তৈরি, বই ফরম্যাটিং ও প্রকাশনাসহ বিভিন্ন ডিজিটাল সেবা প্রদান করা হয়।</p>
+<p>Matrix Craft হলো M. A. Hamza কর্তৃক প্রতিষ্ঠিত একটি সৃজনশীল ডিজিটাল প্রতিষ্ঠান, যার মাধ্যমে ভিডিও এডিটিং, গ্রাফিক্স ডিজাইন, ওয়েবসাইট তৈরি, বই ফরম্যাটিংসহ বিভিন্ন ডিজিটাল সেবা প্রদান করা হয়।</p>
 </div>
 </div>
 
 <script>
 (function(){
+/* safety net: if this file is pasted/uploaded twice by mistake, run only once and drop the extra copy of the page */
+if(window.__nafiahInit)return;window.__nafiahInit=1;
+document.addEventListener("DOMContentLoaded",function(){
+  ["header","main","footer","#pop","#toast"].forEach(function(q){
+    var n=document.querySelectorAll(q);
+    for(var i=1;i<n.length;i++)n[i].remove();
+  });
+});
 var $=function(s,r){return (r||document).querySelector(s)},
     reduce=matchMedia("(prefers-reduced-motion:reduce)").matches,
     fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
@@ -227,7 +235,7 @@ function fadeIn(root){
   root.querySelectorAll("img.fade").forEach(function(i){
     function ok(){i.classList.add("ld")}
     if(i.complete&&i.naturalWidth)ok();
-    else{i.addEventListener("load",ok);i.addEventListener("error",function(){var p=i.parentNode;i.remove();if(p&&!p.querySelector(".ph")){var s=document.createElement("span");s.className="ph";s.textContent=p.getAttribute("data-t")||"";p.appendChild(s)}})}
+    else{i.addEventListener("load",ok);i.addEventListener("error",function(){var p=i.parentNode;i.remove();if(p&&!p.querySelector(".ph")){p.classList.add("np");var s=document.createElement("span");s.className="ph";s.textContent=p.getAttribute("data-t")||"";p.appendChild(s)}})}
   });
 }
 fadeIn(document);
@@ -328,7 +336,7 @@ function card(b,i){
   var href=DETAILS_URL+"?id="+encodeURIComponent(b.id);
   var cover=b.cover?'<img class="fade" src="'+esc(b.cover)+'" alt="'+esc(b.title)+' বইয়ের প্রচ্ছদ" width="450" height="600" loading="lazy" decoding="async">':'<span class="ph">'+esc(b.title)+'</span>';
   return '<li><a class="bk glass shine" href="'+esc(href)+'" style="--d:'+Math.min(i,11)*45+'ms">'+
-    '<div class="cv"'+(b.cover?' style="--cv:url(\''+esc(b.cover)+'\')"':'')+' data-t="'+esc(b.title)+'">'+cover+'</div>'+
+    '<div class="cv'+(b.cover?'':' np')+'" data-t="'+esc(b.title)+'">'+cover+'</div>'+
     '<div class="inf">'+(b.category?'<span class="tag">'+esc(b.category)+'</span>':'')+
     '<h2 class="tt">'+esc(b.title)+'</h2>'+
     (b.author?'<p class="au">'+esc(b.author)+'</p>':'')+
