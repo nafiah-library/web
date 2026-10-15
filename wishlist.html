@@ -286,6 +286,14 @@ footer .fl:hover img{transform:scale(1.05)}
 
 <script>
 (function(){
+/* safety net: if this file is pasted/uploaded twice by mistake, run only once and drop the extra copy of the page */
+if(window.__nafiahWL)return;window.__nafiahWL=1;
+document.addEventListener("DOMContentLoaded",function(){
+  ["header","main","footer","#pop","#toast"].forEach(function(q){
+    var n=document.querySelectorAll(q);
+    for(var i=1;i<n.length;i++)n[i].remove();
+  });
+});
 var $=function(s,r){return (r||document).querySelector(s)},
     reduce=matchMedia("(prefers-reduced-motion:reduce)").matches,
     fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
