@@ -13,16 +13,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0d1527">
-<meta name="description" content="Nafi'ah Library — আপনার পছন্দের বইয়ের উইশলিস্ট।">
+<meta name="description" content="Nafi'ah Library — আপনার পাঠ-তালিকা। পছন্দের বইগুলো এক জায়গায় সাজিয়ে রাখুন।">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="উইশলিস্ট — Nafi'ah Library">
+<meta property="og:title" content="পাঠ-তালিকা — Nafi'ah Library">
 <meta property="og:description" content="আপনার পছন্দের বইগুলো এক জায়গায় দেখুন।">
 <meta property="og:image" content="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg">
-<meta property="og:url" content="https://nafiahlibrary.com/wishlist">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="bn_BD">
 <link rel="icon" href="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg">
-<title>উইশলিস্ট — Nafi'ah Library</title>
+<title>পাঠ-তালিকা — Nafi'ah Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -41,6 +40,7 @@ body::after{background:#3b82f6;bottom:-20vmax;right:-14vmax;opacity:.28;animatio
 .glass{background:var(--glass);border:1px solid var(--glass-b);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);box-shadow:0 20px 50px rgba(0,0,0,.35)}
 .rv{opacity:0;transform:translateY(18px);animation:up .8s var(--ease) forwards;animation-delay:calc(var(--i,0) * 90ms)}
 @keyframes up{to{opacity:1;transform:none}}
+@keyframes bkin{from{opacity:0;transform:translateY(18px)}}
 a:focus-visible,button:focus-visible,.shine:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .js .fade{opacity:0;transition:opacity .7s var(--ease)}
 .js .fade.ld{opacity:1}
@@ -53,17 +53,27 @@ header{position:relative;max-width:920px;margin:0 auto;padding:16px 16px 4px;z-i
 
 main{max-width:920px;margin:0 auto;padding:16px 16px 16px}
 
-/* top panel */
-.top{position:relative;text-align:center;padding:36px 24px 30px;border-radius:24px}
+/* ---------- top panel: fanned cover stack + stats ---------- */
+.top{position:relative;text-align:center;padding:34px 24px 28px;border-radius:24px}
 .top::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(96,165,250,.14),transparent 60%);opacity:0;transition:opacity .5s}
+.stack{display:flex;justify-content:center;align-items:flex-end;padding-left:14px;margin:0 auto 18px;min-height:84px}
+.stack[hidden]{display:none}
+.sc{position:relative;flex:none;width:54px;aspect-ratio:3/4;margin-left:-14px;border-radius:9px;overflow:hidden;border:1px solid var(--glass-b);background:linear-gradient(160deg,#1e3a8a,#0f172a);box-shadow:0 10px 22px rgba(0,0,0,.5);transform:rotate(var(--r,0deg)) translateY(var(--y,0px));animation:bkin .6s var(--ease) backwards;animation-delay:var(--d,0ms)}
+.sc img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.sc.more{display:grid;place-items:center;font-weight:700;font-size:.95rem;color:var(--acc)}
 h1{font-size:2.1rem;line-height:1.25;margin:0 0 8px;background:linear-gradient(100deg,#fff 30%,#bfdbfe 50%,#fff 70%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gl 7s ease-in-out infinite alternate}
 @keyframes gl{to{background-position:-120% 0}}
 .sub{margin:0 auto;color:var(--mute);max-width:520px}
+.stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:20px}
+.stats[hidden]{display:none}
+.stat{min-width:112px;padding:8px 20px;border-radius:14px;background:var(--glass);border:1px solid var(--glass-b);text-align:center;cursor:pointer}
+.stat b{display:block;font-size:1.35rem;line-height:1.25;font-weight:700}
+.stat small{display:block;color:var(--mute);font-size:.8rem}
 
-/* shine sweep */
+/* shine sweep (same as the detail-page boxes) */
 .shine{position:relative;overflow:hidden;cursor:pointer;user-select:none;-webkit-user-select:none;transition:border-color .35s,background .35s,box-shadow .35s}
-.shine.sel{background:rgba(255,255,255,.1);border-color:rgba(96,165,250,.5)}
 .shine::after{content:"";position:absolute;top:0;bottom:0;left:0;width:55%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.55),transparent);transform:translateX(-130%) skewX(-18deg);opacity:0;pointer-events:none}
+.shine.sel{background:rgba(255,255,255,.1);border-color:rgba(96,165,250,.5)}
 .shine.go::after{animation:sweep .9s var(--ease)}
 @keyframes sweep{0%{transform:translateX(-130%) skewX(-18deg);opacity:1}100%{transform:translateX(330%) skewX(-18deg);opacity:1}}
 
@@ -73,56 +83,62 @@ h1{font-size:2.1rem;line-height:1.25;margin:0 0 8px;background:linear-gradient(1
 .sp{position:absolute;width:7px;height:7px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--acc);pointer-events:none;animation:fly .7s var(--ease) forwards}
 @keyframes fly{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
 
-/* count + clear-all bar */
+/* order note + clear-all */
 .bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 6px 12px;min-height:36px}
-.count{margin:0;color:var(--mute);font-size:.92rem}
-.clr{position:relative;overflow:hidden;font:inherit;font-size:.9rem;font-weight:500;color:var(--mute);background:rgba(255,255,255,.06);border:1px solid var(--glass-b);border-radius:99px;padding:6px 16px;cursor:pointer;transition:background .35s,color .35s,border-color .35s,transform .2s}
+.note{margin:0;color:var(--mute);font-size:.9rem}
+.clr{position:relative;overflow:hidden;font:inherit;font-size:.9rem;font-weight:500;color:var(--mute);background:rgba(255,255,255,.06);border:1px solid var(--glass-b);border-radius:99px;padding:6px 16px;cursor:pointer;flex:none;transition:background .35s,color .35s,border-color .35s,transform .2s}
 .clr:active{transform:scale(.95)}
 .clr.on{color:var(--acc);background:rgba(255,255,255,.1);border-color:rgba(96,165,250,.5)}
-.clr[hidden]{display:none}
+.clr[hidden],.note[hidden]{display:none}
 
-/* grid */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;list-style:none;margin:0;padding:0}
-@media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr);gap:18px}}
-@media(min-width:880px){.grid{grid-template-columns:repeat(4,1fr)}}
-.grid li{display:flex;min-width:0}
-@keyframes bkin{from{opacity:0;transform:translateY(18px)}}
-.bk{flex:1;display:flex;flex-direction:column;min-width:0;border-radius:18px;animation:bkin .6s var(--ease) backwards;animation-delay:var(--d,0ms);transition:transform .35s var(--ease),border-color .35s,background .35s,box-shadow .35s,opacity .35s}
-.bk::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(96,165,250,.16),transparent 60%);opacity:0;transition:opacity .5s}
-.bk:active{transform:scale(.97)}
-.lnk{flex:1;display:flex;flex-direction:column;min-width:0;color:inherit;text-decoration:none;border-radius:inherit}
-.cv{position:relative;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;padding:14px;text-align:center;background:linear-gradient(160deg,#1e3a8a,#0f172a);overflow:hidden}
-.cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.cv .ph{font-weight:700;font-size:1.05rem;line-height:1.4;color:#dbeafe}
-.inf{display:flex;flex-direction:column;gap:2px;padding:12px 12px 14px}
-.tag{align-self:flex-start;max-width:100%;padding:2px 10px;margin-bottom:4px;border-radius:99px;font-size:.74rem;font-weight:600;color:#93c5fd;background:rgba(37,99,235,.22);border:1px solid rgba(147,197,253,.3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.tt{margin:0;font-size:1rem;font-weight:600;line-height:1.4;transition:color .4s}
-.bk.sel .tt{color:var(--acc)}
+/* ---------- reading-list rows ---------- */
+.rows{display:grid;grid-template-columns:1fr;gap:12px;list-style:none;margin:0;padding:0}
+@media(min-width:760px){.rows{grid-template-columns:repeat(2,1fr);gap:14px}}
+.rows li{display:flex;min-width:0}
+.row{flex:1;display:flex;min-width:0;border-radius:20px;animation:bkin .6s var(--ease) backwards;animation-delay:var(--d,0ms);transition:transform .35s var(--ease),border-color .35s,background .35s,box-shadow .35s,opacity .35s}
+.row::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(300px circle at var(--mx,50%) var(--my,0%),rgba(96,165,250,.16),transparent 60%);opacity:0;transition:opacity .5s}
+.row:active{transform:scale(.98)}
+.lnk{flex:1;display:flex;gap:14px;min-width:0;padding:12px;color:inherit;text-decoration:none;border-radius:inherit}
+.cv{position:relative;flex:none;align-self:flex-start;width:92px;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;padding:8px;text-align:center;border-radius:12px;overflow:hidden;border:1px solid var(--glass-b);background:linear-gradient(160deg,#1e3a8a,#0f172a);box-shadow:0 12px 26px rgba(0,0,0,.45)}
+.cv::before{content:"";position:absolute;inset:-12%;background:var(--cv) center/cover no-repeat;filter:blur(16px) brightness(.55);pointer-events:none}
+.cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.cv .ph{position:relative;font-weight:700;font-size:.85rem;line-height:1.35;color:#dbeafe}
+.no{position:absolute;top:5px;left:5px;z-index:2;min-width:26px;height:26px;padding:0 7px;border-radius:99px;display:grid;place-items:center;font-size:.85rem;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 4px 12px rgba(37,99,235,.45)}
+.bd{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;padding-right:40px}
+.tag{align-self:flex-start;max-width:100%;padding:2px 10px;margin-bottom:3px;border-radius:99px;font-size:.74rem;font-weight:600;color:#93c5fd;background:rgba(37,99,235,.22);border:1px solid rgba(147,197,253,.3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tt{margin:0;font-size:1.02rem;font-weight:600;line-height:1.4;transition:color .4s}
+.row.sel .tt{color:var(--acc)}
 .au{margin:0;font-size:.88rem;color:var(--mute);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pk{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.pk span{padding:1px 10px;border-radius:99px;font-size:.76rem;background:rgba(255,255,255,.07);border:1px solid var(--glass-b);color:var(--mute)}
+.go{margin-top:auto;padding-top:8px;font-size:.88rem;font-weight:600;color:var(--acc)}
+.go i{display:inline-block;font-style:normal;transition:transform .35s var(--ease)}
 
-/* remove button on each card */
-.rm{position:absolute;top:8px;right:8px;z-index:2;width:36px;height:36px;padding:0;overflow:hidden;border:1px solid var(--glass-b);border-radius:50%;background:rgba(13,21,39,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .3s,transform .2s,color .3s}
+.rm{position:absolute;top:10px;right:10px;z-index:3;width:34px;height:34px;padding:0;overflow:hidden;border:1px solid var(--glass-b);border-radius:50%;background:rgba(13,21,39,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .3s,transform .2s}
 .rm:active{transform:scale(.88)}
-.rm svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;pointer-events:none}
-.bk.out{opacity:0!important;transform:scale(.9)!important;pointer-events:none}
+.rm svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;pointer-events:none}
+.row.out{opacity:0!important;transform:scale(.92)!important;pointer-events:none}
 
-/* skeleton */
-.sk{border-radius:18px;overflow:hidden}
-.sk .cv{background:rgba(255,255,255,.05)}
-.sk .l{height:12px;border-radius:6px;margin:10px 12px 0;background:rgba(255,255,255,.07)}
-.sk .l.s{width:55%;margin-bottom:14px}
-.sk .cv,.sk .l{position:relative;overflow:hidden}
-.sk .cv::after,.sk .l::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(255,255,255,.1),transparent);transform:translateX(-100%);animation:shm 1.4s infinite}
+/* skeleton rows */
+.sk{position:relative;overflow:hidden;height:124px;border-radius:20px}
+.sk::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(255,255,255,.1),transparent);transform:translateX(-100%);animation:shm 1.4s infinite}
 @keyframes shm{to{transform:translateX(100%)}}
 
-/* empty state + CTA (same as home page button) */
+/* actions */
+.acts{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:24px 0 6px}
+.acts[hidden]{display:none}
+.cta-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:600;font-size:1.05rem;color:#ffffff;background:linear-gradient(135deg,var(--acc),var(--acc2));border:1px solid transparent;border-radius:14px;padding:14px 28px;text-decoration:none;cursor:pointer;box-shadow:0 10px 26px rgba(37,99,235,.35);transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .4s,color .4s,border-color .4s}
+.cta-btn:active{transform:scale(.97)}
+.cta-btn.on{background:rgba(255,255,255,.08);color:var(--acc);border-color:rgba(96,165,250,.5);box-shadow:none}
+.sec{font:inherit;font-weight:600;font-size:1.05rem;color:var(--acc);background:rgba(255,255,255,.07);border:1px solid rgba(96,165,250,.45);border-radius:14px;padding:14px 26px}
+.hint{margin:10px 6px 0;text-align:center;color:var(--mute);font-size:.88rem}
+.hint[hidden]{display:none}
+
+/* empty state */
 .empty{text-align:center;padding:44px 22px;border-radius:24px;margin-top:6px}
 .empty[hidden]{display:none}
 .empty b{display:block;font-size:1.25rem;font-weight:600;margin-bottom:6px}
 .empty p{margin:0 auto 22px;color:var(--mute);max-width:420px}
-.cta-btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:600;font-size:1.05rem;color:#ffffff;background:linear-gradient(135deg,var(--acc),var(--acc2));border:1px solid transparent;border-radius:14px;padding:14px 32px;text-decoration:none;cursor:pointer;box-shadow:0 10px 26px rgba(37,99,235,.35);transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .4s,color .4s,border-color .4s}
-.cta-btn:active{transform:scale(.97)}
-.cta-btn.on{background:rgba(255,255,255,.08);color:var(--acc);border-color:rgba(96,165,250,.5);box-shadow:none}
 
 footer{max-width:920px;margin:12px auto 0;text-align:center;color:var(--mute);font-size:.88rem;padding:16px 16px 32px}
 footer .fl{display:block;width:fit-content;margin:0 auto 10px;line-height:0}
@@ -148,12 +164,13 @@ footer p{margin:2px 0}
 .top:hover::before{opacity:1}
 .clr:hover{color:var(--ink);border-color:rgba(255,255,255,.35)}
 .clr.on:hover{color:var(--acc);border-color:rgba(96,165,250,.5)}
-.bk:hover::before{opacity:1}
-.bk:hover{transform:translateY(-5px);border-color:rgba(96,165,250,.45);box-shadow:0 26px 54px rgba(0,0,0,.5)}
+.row:hover::before{opacity:1}
+.row:hover{transform:translateY(-4px);border-color:rgba(96,165,250,.45);box-shadow:0 26px 54px rgba(0,0,0,.5)}
+.row:hover .go i{transform:translateX(5px)}
 .rm:hover{background:rgba(255,255,255,.18)}
 footer .fl:hover img{transform:scale(1.05)}
 }
-@media(max-width:760px){.top{padding:28px 16px 24px}h1{font-size:1.65rem}.links a{font-size:.92rem;padding:9px 4px}}
+@media(max-width:760px){.top{padding:28px 16px 24px}h1{font-size:1.65rem}.links a{font-size:.92rem;padding:9px 4px}.cv{width:82px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}h1{color:var(--ink);background:none}}
 </style>
 </head>
@@ -167,23 +184,88 @@ footer .fl:hover img{transform:scale(1.05)}
 </nav>
 </header>
 <main>
-<section class="top glass rv" style="--i:2" id="top">
-<h1>আমার উইশলিস্ট</h1>
-<p class="sub">যে বইগুলো পড়তে চান, সেগুলো এখানে জমা থাকে।</p>
+<section class="top glass rv" style="--i:2" id="tp">
+<div class="stack" id="stack" hidden aria-hidden="true"></div>
+<h1>আমার পাঠ-তালিকা</h1>
+<p class="sub">যে বইগুলো পড়তে চান, সেগুলো এখানে সাজানো থাকে।</p>
+<div class="stats" id="stats" hidden></div>
 </section>
 
 <div class="bar rv" style="--i:3">
-<p class="count" id="count" aria-live="polite"></p>
+<p class="note" id="note" hidden>নতুন যোগ করা বই সবার ওপরে</p>
 <button class="clr" id="clr" type="button" hidden><span id="clrt">সব মুছুন</span></button>
 </div>
 
-<ul class="grid" id="grid" aria-busy="true">
-<li class="sk glass"><div class="cv"></div><div class="l"></div><div class="l s"></div></li>
-<li class="sk glass"><div class="cv"></div><div class="l"></div><div class="l s"></div></li>
+<ul class="rows" id="rows" aria-busy="true">
+<li class="sk glass"></li>
+<li class="sk glass"></li>
 </ul>
 
+<div class="acts" id="acts" hidden>
+<a class="cta-btn" id="mail" href="#">ইমেইলে অনুরোধ পাঠান</a>
+<button class="sec shine" id="cp" type="button">তালিকা কপি করুন</button>
+</div>
+<p class="hint" id="hint" hidden>এই তালিকা শুধু এই ডিভাইসের ব্রাউজারে সেভ থাকে।</p>
+
 <div class="empty glass" id="empty" hidden>
-<b>আপনার উইশলিস্ট এখন খালি</b>
+<b>আপনার পাঠ-তালিকা এখন খালি</b>
+<p>বইয়ের পেজে গিয়ে "উইশলিস্টে যুক্ত করুন" বাটন চাপলে বইটি এখানে জমা হবে।</p>
+<a class="cta-btn" id="cta" href="books.html">বইসমূহ দেখুন</a>
+</div>
+</main>
+
+<footer class="rv" style="--i:4">
+<a class="fl" href="index.html" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/RkKNgBzP/IMG-20261012-191353.png" alt="Nafi'ah Library Logo" decoding="async"></a>
+<div class="fline"></div>
+<p>© Nafi'ah Library since 2025</p>
+<p>Build by <button class="mc" id="mc" type="button" aria-haspopup="dialog">Matrix Craft</button></p>
+</footer>
+<div id="pop" class="mpop" aria-hidden="true">
+<div class="pcard glass" role="dialog" aria-modal="true" aria-labelledby="pt">
+<button class="px" id="px" type="button" aria-label="বন্ধ করুন">×</button>
+<h3 id="pt">Matrix Craft</h3>
+<p>Matrix Craft হলো M. A. Hamza কর্তৃক প্রতিষ্ঠিত একটি সৃজনশীল ডিজিটাল প্রতিষ্ঠান, যার মাধ্যমে ভিডিও এডিটিং, গ্রাফিক্স ডিজাইন, ওয়েবসাইট তৈরি, বই ফরম্যাটিং ও প্রকাশনাসহ বিভিন্ন ডিজিটাল সেবা প্রদান করা হয়।</p>
+</div>
+</div>
+<div id="toast" class="glass" role="status" aria-live="polite"></div>
+
+</style>
+</head>
+<body>
+<header class="rv" style="--i:0">
+<nav class="links" aria-label="প্রধান মেনু">
+<a href="index.html">হোম</a>
+<a href="books.html">বই</a>
+<a href="wishlist.html" id="navwl" class="cur" aria-current="page">উইশলিস্ট</a>
+<a href="about.html">পরিচিতি</a>
+</nav>
+</header>
+<main>
+<section class="top glass rv" style="--i:2" id="tp">
+<div class="stack" id="stack" hidden aria-hidden="true"></div>
+<h1>আমার পাঠ-তালিকা</h1>
+<p class="sub">যে বইগুলো পড়তে চান, সেগুলো এখানে সাজানো থাকে।</p>
+<div class="stats" id="stats" hidden></div>
+</section>
+
+<div class="bar rv" style="--i:3">
+<p class="note" id="note" hidden>নতুন যোগ করা বই সবার ওপরে</p>
+<button class="clr" id="clr" type="button" hidden><span id="clrt">সব মুছুন</span></button>
+</div>
+
+<ul class="rows" id="rows" aria-busy="true">
+<li class="sk glass"></li>
+<li class="sk glass"></li>
+</ul>
+
+<div class="acts" id="acts" hidden>
+<a class="cta-btn" id="mail" href="#">ইমেইলে অনুরোধ পাঠান</a>
+<button class="sec shine" id="cp" type="button">তালিকা কপি করুন</button>
+</div>
+<p class="hint" id="hint" hidden>এই তালিকা শুধু এই ডিভাইসের ব্রাউজারে সেভ থাকে।</p>
+
+<div class="empty glass" id="empty" hidden>
+<b>আপনার পাঠ-তালিকা এখন খালি</b>
 <p>বইয়ের পেজে গিয়ে "উইশলিস্টে যুক্ত করুন" বাটন চাপলে বইটি এখানে জমা হবে।</p>
 <a class="cta-btn" id="cta" href="books.html">বইসমূহ দেখুন</a>
 </div>
@@ -213,18 +295,19 @@ function vib(n){try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}}
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function bn(n){return Number(n).toLocaleString("bn-BD")}
 
-var LK="nafiah_wishlist",DATA_URL="books.json",DETAILS_URL="book-details.html";
+var LK="nafiah_wishlist",DATA_URL="books.json",DETAILS_URL="book-details.html",MAIL="nafiahlibrary@gmail.com";
 var GO=850; /* অ্যানিমেশন শেষ হওয়া পর্যন্ত অপেক্ষা */
 
-var grid=$("#grid"),countEl=$("#count"),emptyEl=$("#empty"),clr=$("#clr"),clrt=$("#clrt");
+var rows=$("#rows"),stackEl=$("#stack"),statsEl=$("#stats"),noteEl=$("#note"),emptyEl=$("#empty"),
+    clr=$("#clr"),clrt=$("#clrt"),acts=$("#acts"),hint=$("#hint"),mail=$("#mail"),cp=$("#cp");
 var catalog=null;
 
-/* fade-in for images */
+/* fade-in for images (cover falls back to the title text) */
 function fadeIn(root){
   root.querySelectorAll("img.fade").forEach(function(i){
     function ok(){i.classList.add("ld")}
     if(i.complete&&i.naturalWidth)ok();
-    else{i.addEventListener("load",ok);i.addEventListener("error",function(){var p=i.parentNode;i.remove();if(p&&!p.querySelector(".ph")){var s=document.createElement("span");s.className="ph";s.textContent=p.getAttribute("data-t")||"";p.appendChild(s)}})}
+    else{i.addEventListener("load",ok);i.addEventListener("error",function(){var p=i.parentNode;i.remove();if(p&&p.hasAttribute("data-t")&&!p.querySelector(".ph")){var s=document.createElement("span");s.className="ph";s.textContent=p.getAttribute("data-t")||"";p.appendChild(s)}})}
   });
 }
 fadeIn(document);
@@ -234,7 +317,6 @@ var t=$("#toast");
 function toast(m){t.textContent=m;t.classList.add("show");clearTimeout(toast.h);toast.h=setTimeout(function(){t.classList.remove("show")},2000)}
 
 /* shine + ripple/sparks */
-function shine(el){if(reduce)return;el.classList.remove("go");void el.offsetWidth;el.classList.add("go")}
 document.addEventListener("animationend",function(e){if(e.target.classList&&e.target.classList.contains("shine"))e.target.classList.remove("go")});
 function fx(el,e){
   if(reduce)return;
@@ -277,37 +359,64 @@ function items(){
     var cat=c?(Array.isArray(c.category)?c.category[0]:c.category):"";
     var title=(c&&c.title)||base.title||"";
     if(!title)return;
-    out.push({id:id,title:String(title),author:String((c&&c.author)||base.author||""),category:cat?String(cat):"",cover:(c&&(c.cover||c.image||c.img))||base.img||"",href:DETAILS_URL+"?id="+encodeURIComponent(id)});
+    out.push({id:id,title:String(title),author:String((c&&c.author)||base.author||""),category:cat?String(cat):"",cover:(c&&(c.cover||c.image||c.img))||base.img||"",packages:(c&&Array.isArray(c.packages))?c.packages:[],href:DETAILS_URL+"?id="+encodeURIComponent(id)});
   });
   return out.reverse(); /* newest first */
 }
 
-/* ---- render ---- */
-function card(b,i){
+/* ---- rows ---- */
+function row(b,i){
   var cover=b.cover?'<img class="fade" src="'+esc(b.cover)+'" alt="'+esc(b.title)+' বইয়ের প্রচ্ছদ" width="450" height="600" loading="lazy" decoding="async">':'<span class="ph">'+esc(b.title)+'</span>';
-  return '<li data-id="'+esc(b.id)+'"><div class="bk glass shine" style="--d:'+Math.min(i,11)*45+'ms">'+
+  var pk=b.packages.length?'<div class="pk">'+b.packages.map(function(p){return'<span>'+esc(p)+'</span>'}).join("")+'</div>':'';
+  return '<li data-id="'+esc(b.id)+'"><div class="row glass shine" style="--d:'+Math.min(i,11)*45+'ms">'+
     '<a class="lnk" href="'+esc(b.href)+'">'+
-    '<div class="cv" data-t="'+esc(b.title)+'">'+cover+'</div>'+
-    '<div class="inf">'+(b.category?'<span class="tag">'+esc(b.category)+'</span>':'')+
+    '<div class="cv"'+(b.cover?' style="--cv:url(\''+esc(b.cover)+'\')"':'')+' data-t="'+esc(b.title)+'"><span class="no">'+bn(i+1)+'</span>'+cover+'</div>'+
+    '<div class="bd">'+(b.category?'<span class="tag">'+esc(b.category)+'</span>':'')+
     '<h2 class="tt">'+esc(b.title)+'</h2>'+
-    (b.author?'<p class="au">'+esc(b.author)+'</p>':'')+
-    '</div></a>'+
+    (b.author?'<p class="au">'+esc(b.author)+'</p>':'')+pk+
+    '<span class="go">বিস্তারিত দেখুন <i aria-hidden="true">→</i></span></div></a>'+
     '<button class="rm" type="button" data-id="'+esc(b.id)+'" aria-label="'+esc(b.title)+' উইশলিস্ট থেকে সরান"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>'+
     '</div></li>';
 }
+
+/* fanned cover stack + stat boxes */
+function buildTop(l){
+  var n=l.length,show=l.slice(0,6),mid=(show.length-1)/2,h="";
+  show.forEach(function(b,i){
+    h+='<span class="sc" style="--r:'+((i-mid)*5).toFixed(1)+'deg;--y:'+(Math.abs(i-mid)*3).toFixed(0)+'px;--d:'+i*60+'ms">'+(b.cover?'<img class="fade" src="'+esc(b.cover)+'" alt="" decoding="async">':'')+'</span>';
+  });
+  if(n>show.length)h+='<span class="sc more" style="--d:'+show.length*60+'ms">+'+bn(n-show.length)+'</span>';
+  stackEl.innerHTML=h;fadeIn(stackEl);
+  var cats={};l.forEach(function(b){if(b.category)cats[b.category]=1});
+  var nc=Object.keys(cats).length,sh='<div class="stat shine" tabindex="0" role="button"><b>'+bn(n)+'</b><small>টি বই</small></div>';
+  if(nc)sh+='<div class="stat shine" tabindex="0" role="button"><b>'+bn(nc)+'</b><small>টি বিভাগ</small></div>';
+  statsEl.innerHTML=sh;
+}
+
+/* text used by "copy list" and the email request */
+function lines(l){
+  var t="";
+  l.forEach(function(b,i){t+=bn(i+1)+". "+b.title+(b.author?" — "+b.author:"")+"\n   "+new URL(b.href,location.href).href+"\n"});
+  return t;
+}
+function setMail(l){
+  var body="আসসালামু আলাইকুম,\n\nআমি নিচের বইগুলো পড়তে চাই:\n\n"+lines(l)+"\nধন্যবাদ।";
+  mail.href="mailto:"+MAIL+"?subject="+encodeURIComponent("বই পড়ার অনুরোধ — Nafi'ah Library")+"&body="+encodeURIComponent(body);
+}
+
 function updateState(){
-  var n=grid.querySelectorAll("li:not(.sk)").length;
-  countEl.textContent=n?bn(n)+"টি বই":"";
-  clr.hidden=n===0;
+  var l=items(),n=l.length;
+  buildTop(l);setMail(l);
+  rows.querySelectorAll("li:not(.sk) .no").forEach(function(s,k){s.textContent=bn(k+1)});
+  stackEl.hidden=statsEl.hidden=acts.hidden=hint.hidden=noteEl.hidden=clr.hidden=n===0;
   emptyEl.hidden=n!==0;
   if(!n)disarm();
 }
 function render(){
-  clearSelection();
-  var list=items();
-  grid.innerHTML=list.map(card).join("");
-  grid.setAttribute("aria-busy","false");
-  fadeIn(grid);
+  if(cur&&rows.contains(cur))clearSelection();
+  rows.innerHTML=items().map(row).join("");
+  rows.setAttribute("aria-busy","false");
+  fadeIn(rows);
   updateState();
 }
 
@@ -318,7 +427,7 @@ function removeOne(btn,e){
   var id=btn.getAttribute("data-id");
   fx(btn,e);vib(8);
   write(read().filter(function(x){return idOf(x)!==id}));
-  var bk=li.querySelector(".bk");if(bk)bk.classList.add("out");
+  var rw=li.querySelector(".row");if(rw)rw.classList.add("out");
   toast("উইশলিস্ট থেকে সরানো হয়েছে");
   setTimeout(function(){li.remove();updateState()},reduce?0:360);
 }
@@ -333,21 +442,49 @@ clr.addEventListener("click",function(e){
   }
   disarm();vib([10,40,10]);
   write([]);
-  grid.querySelectorAll(".bk").forEach(function(b){b.classList.add("out")});
+  rows.querySelectorAll(".row").forEach(function(b){b.classList.add("out")});
   toast("উইশলিস্ট খালি করা হয়েছে");
   setTimeout(render,reduce?0:360);
 });
 
-/* ---- card click: ripple, shine, then open details ---- */
-grid.addEventListener("click",function(e){
+/* ---- row click: ripple, shine, then open details ---- */
+rows.addEventListener("click",function(e){
   var rm=e.target.closest(".rm");
   if(rm){e.preventDefault();e.stopPropagation();removeOne(rm,e);return}
   var a=e.target.closest("a.lnk");if(!a)return;
   if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
   e.preventDefault();e.stopPropagation();
-  var bk=a.closest(".bk");
-  fx(bk,e);pick(bk);
+  var rw=a.closest(".row");
+  fx(rw,e);pick(rw);
   setTimeout(function(){location.href=a.href},reduce?0:GO);
+});
+
+/* ---- stat boxes: same shine as the detail-page boxes ---- */
+statsEl.addEventListener("click",function(e){var s=e.target.closest(".stat");if(!s)return;e.stopPropagation();pick(s)});
+statsEl.addEventListener("keydown",function(e){var s=e.target.closest(".stat");if(s&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pick(s)}});
+
+/* ---- email request (opens the mail app with the list filled in) ---- */
+mail.addEventListener("click",function(e){
+  if(!items().length){e.preventDefault();return}
+  if(mail.classList.contains("on"))return;
+  mail.classList.add("on");fx(mail,e);
+  setTimeout(function(){mail.classList.remove("on")},1400);
+});
+
+/* ---- copy list ---- */
+function fallbackCopy(u){
+  var ta=document.createElement("textarea");ta.value=u;ta.setAttribute("readonly","");ta.style.cssText="position:fixed;top:0;left:0;opacity:0";
+  document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,u.length);
+  var ok=false;try{ok=document.execCommand("copy")}catch(e){}
+  document.body.removeChild(ta);
+  toast(ok?"তালিকা কপি হয়েছে":"কপি করা যায়নি");
+}
+cp.addEventListener("click",function(e){
+  e.stopPropagation();pick(cp);
+  var l=items();if(!l.length)return;
+  var u="আমার পাঠ-তালিকা — Nafi'ah Library\n\n"+lines(l);
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(function(){toast("তালিকা কপি হয়েছে")},function(){fallbackCopy(u)})}
+  else fallbackCopy(u);
 });
 
 /* ---- empty-state CTA (same behaviour as home page) ---- */
@@ -371,8 +508,8 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape"&&pp.classLis
 
 /* ---- spotlight (mouse only) ---- */
 if(fine&&!reduce){
-  var tp=$("#top");
-  grid.addEventListener("pointermove",function(e){var a=e.target.closest&&e.target.closest(".bk");if(!a)return;var r=a.getBoundingClientRect();a.style.setProperty("--mx",(e.clientX-r.left)+"px");a.style.setProperty("--my",(e.clientY-r.top)+"px")});
+  var tp=$("#tp");
+  rows.addEventListener("pointermove",function(e){var a=e.target.closest&&e.target.closest(".row");if(!a)return;var r=a.getBoundingClientRect();a.style.setProperty("--mx",(e.clientX-r.left)+"px");a.style.setProperty("--my",(e.clientY-r.top)+"px")});
   tp.addEventListener("pointermove",function(e){var r=tp.getBoundingClientRect();tp.style.setProperty("--mx",(e.clientX-r.left)+"px");tp.style.setProperty("--my",(e.clientY-r.top)+"px")});
 }
 
@@ -380,7 +517,7 @@ if(fine&&!reduce){
 window.addEventListener("storage",function(e){if(e.key===LK)render()});
 window.addEventListener("pageshow",function(e){if(e.persisted)render()});
 
-/* ---- start: load catalog (for fresh covers/titles), then render once ---- */
+/* ---- start: load catalog (for fresh covers/titles/packages), then render once ---- */
 if(!read().length){
   render();
 }else{
