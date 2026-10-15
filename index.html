@@ -23,7 +23,7 @@
 <meta property="og:locale" content="bn_BD">
 <!-- Favicon -->
 <link rel="icon" href="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg">
-<title>হোম — Nafi'ah Library</title>
+<title>হোম — নাফি'আহ লাইব্রেরী</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 
@@ -147,6 +147,14 @@ footer .fl:hover img{transform:scale(1.05)}
 
 <script>
 (function(){
+/* safety net: if this file is pasted/uploaded twice by mistake, run only once and drop the extra copy of the page */
+if(window.__nafiahInit)return;window.__nafiahInit=1;
+document.addEventListener("DOMContentLoaded",function(){
+  ["header","main","footer","#pop","#toast"].forEach(function(q){
+    var n=document.querySelectorAll(q);
+    for(var i=1;i<n.length;i++)n[i].remove();
+  });
+});
 var $=function(s,r){return (r||document.querySelector(s))},reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
 
 document.querySelectorAll("img.fade").forEach(function(i){
