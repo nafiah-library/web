@@ -13,13 +13,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0d1527">
-<meta name="description" content="Nafi'ah Library — বইয়ের বিবরণ">
-<meta property="og:title" content="বইয়ের বিবরণ — Nafi'ah Library">
-<meta property="og:description" content="Nafi'ah Library থেকে সংগ্রহ করুন।">
+<meta name="description" content="নাফি'আহ লাইব্রেরী — বইয়ের বিবরণ">
+<meta property="og:title" content="বইয়ের বিবরণ — নাফি'আহ লাইব্রেরী">
+<meta property="og:description" content="নাফি'আহ লাইব্রেরী থেকে সংগ্রহ করুন।">
 <meta property="og:image" content="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg">
-<title>বইয়ের বিবরণ — Nafi'ah Library</title>
+<title>বইয়ের বিবরণ — নাফি'আহ লাইব্রেরী</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <style>
@@ -163,7 +163,7 @@ footer .fl:hover img{transform:scale(1.05)}
 <div class="pcard glass" role="dialog" aria-modal="true" aria-labelledby="pt">
 <button class="px" id="px" type="button" aria-label="বন্ধ করুন">×</button>
 <h3 id="pt">Matrix Craft</h3>
-<p>Matrix Craft হলো M. A. Hamza কর্তৃক প্রতিষ্ঠিত একটি সৃজনশীল ডিজিটাল প্রতিষ্ঠান, যার মাধ্যমে ভিডিও এডিটিং, গ্রাফিক্স ডিজাইন, ওয়েবসাইট তৈরি, বই ফরম্যাটিং ও প্রকাশনাসহ বিভিন্ন ডিজিটাল সেবা প্রদান করা হয়।</p>
+<p>Matrix Craft হলো M. A. Hamza কর্তৃক প্রতিষ্ঠিত একটি সৃজনশীল ডিজিটাল প্রতিষ্ঠান, যার মাধ্যমে ভিডিও এডিটিং, গ্রাফিক্স ডিজাইন, ওয়েবসাইট তৈরি, বই ফরম্যাটিংসহ বিভিন্ন ডিজিটাল সেবা প্রদান করা হয়।</p>
 </div>
 </div>
 <div id="toast" class="glass" role="status" aria-live="polite"></div>
@@ -248,7 +248,7 @@ else fallbackCopy(u);
 }
 $("#shr").addEventListener("click",function(){
 if(!BOOK)return;
-var d={title:BOOK.title+" — Nafi'ah Library",text:BOOK.title+(BOOK.author?" — "+BOOK.author:""),url:location.href};
+var d={title:BOOK.title+" — Nafi'ah Library",text:BOOK.title+(BOOK.author?" — "+BOOK.author:""),url:new URL("book/"+encodeURIComponent(BOOK.id)+".html",location.href).href};
 if(navigator.share){
 var p;try{p=navigator.share(d)}catch(e){copyLink(d.url);return}
 if(p&&p.catch)p.catch(function(err){if(!err||err.name!=="AbortError")copyLink(d.url)});
