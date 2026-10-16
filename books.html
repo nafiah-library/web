@@ -13,9 +13,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0d1527">
-<meta name="description" content="Nafi'ah Library-র বইসমূহ — নাম, লেখক বা বিভাগ দিয়ে আপনার পছন্দের দ্বীনি ও আত্মশুদ্ধিমূলক বই খুঁজে নিন।">
-<meta property="og:title" content="বইসমূহ — Nafi'ah Library">
-<meta property="og:description" content="Nafi'ah Library-র বাছাইকৃত ইসলামিক বইয়ের সংগ্রহ দেখুন ও খুঁজুন।">
+<meta name="description" content="নাফি'আহ লাইব্রেরীর বইসমূহ — নাম, লেখক বা বিভাগ দিয়ে আপনার পছন্দের দ্বীনি ও আত্মশুদ্ধিমূলক বই খুঁজে নিন।">
+<meta property="og:title" content="বইসমূহ — নাফি'আহ লাইব্রেরী">
+<meta property="og:description" content="নাফি'আহ লাইব্রেরীর বাছাইকৃত ইসলামিক বইয়ের সংগ্রহ দেখুন ও খুঁজুন।">
 <meta property="og:image" content="https://i.ibb.co.com/Zp325TK0/2-20261013-072435-0001.jpg">
 <meta property="og:url" content="https://nafiahlibrary.com/books">
 <meta property="og:type" content="website">
@@ -60,13 +60,12 @@ h1{font-size:2.1rem;line-height:1.25;margin:0 0 8px;background:linear-gradient(1
 .sub{margin:0 auto 22px;color:var(--mute);max-width:520px}
 
 .search{position:relative;max-width:480px;margin:0 auto;border-radius:99px}
-.search.shine{cursor:text;-webkit-user-select:auto;user-select:auto}
-.search.shine.sel{background:none;border-color:transparent}
-.search.sel input{background:rgba(255,255,255,.12);border-color:rgba(96,165,250,.5)}
+.search.shine{cursor:text;-webkit-user-select:auto;user-select:auto;background:rgba(255,255,255,.08);border:1px solid var(--glass-b)}
+.search.shine.sel{background:rgba(255,255,255,.1);border-color:rgba(96,165,250,.5)}
 .search svg{position:absolute;left:16px;top:50%;width:19px;height:19px;margin-top:-9.5px;fill:none;stroke:var(--mute);stroke-width:2;stroke-linecap:round;pointer-events:none}
-.search input{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:rgba(255,255,255,.08);border:1px solid var(--glass-b);border-radius:99px;padding:12px 18px 12px 44px;transition:border-color .3s,background .3s,box-shadow .3s;-webkit-appearance:none;appearance:none}
+.search input{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:transparent;border:0;border-radius:99px;padding:12px 18px 12px 44px;-webkit-appearance:none;appearance:none}
 .search input::placeholder{color:var(--mute)}
-.search input:focus{outline:none;border-color:rgba(96,165,250,.6);background:rgba(255,255,255,.12)}
+.search input:focus{outline:none}
 .search input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;height:16px;width:16px;cursor:pointer;opacity:.7;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3b8dd' stroke-width='2.5' stroke-linecap='round'><path d='M6 6l12 12M18 6L6 18'/></svg>") center/contain no-repeat}
 
 .chips{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding:18px 2px 4px;margin:0 -2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -100,7 +99,6 @@ h1{font-size:2.1rem;line-height:1.25;margin:0 0 8px;background:linear-gradient(1
 @keyframes bkin{from{opacity:0;transform:translateY(18px)}}
 .bk{flex:1;display:flex;flex-direction:column;min-width:0;color:inherit;text-decoration:none;border-radius:18px;animation:bkin .6s var(--ease) backwards;animation-delay:var(--d,0ms);transition:transform .35s var(--ease),border-color .35s,background .35s,box-shadow .35s}
 .bk::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(96,165,250,.16),transparent 60%);opacity:0;transition:opacity .5s}
-.bk:active{transform:scale(.97)}
 .cv{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(160deg,#1e3a8a,#0f172a);overflow:hidden}
 .cv.np{aspect-ratio:3/4;padding:14px}
 .cv img{display:block;width:100%;height:auto}
@@ -150,7 +148,7 @@ footer p{margin:2px 0}
 .chip:hover{color:var(--ink);border-color:rgba(255,255,255,.35)}
 .chip.on:hover{color:#fff;border-color:transparent}
 .bk:hover::before{opacity:1}
-.bk:hover{transform:translateY(-5px);border-color:rgba(96,165,250,.45);box-shadow:0 26px 54px rgba(0,0,0,.5)}
+.bk:hover{border-color:rgba(96,165,250,.45)}
 footer .fl:hover img{transform:scale(1.05)}
 }
 @media(max-width:760px){.top{padding:28px 16px 22px}h1{font-size:1.65rem}.links a{font-size:.92rem;padding:9px 4px}}
@@ -367,7 +365,7 @@ grid.addEventListener("click",function(e){
   var a=e.target.closest("a.bk");if(!a)return;
   if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
   e.preventDefault();e.stopPropagation();
-  fx(a,e);pick(a);
+  pick(a);
   setTimeout(function(){location.href=a.href},reduce?0:GO);
 });
 
