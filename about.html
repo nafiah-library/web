@@ -74,17 +74,11 @@ h1{font-size:2.1rem;line-height:1.25;margin:0 0 14px;background:linear-gradient(
 
 /* sections */
 .st{font-size:1.1rem;font-weight:600;margin:28px 6px 12px}
-.two{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
-.box{padding:22px 22px 24px;border-radius:20px}
-.box h2{margin:0 0 8px;font-size:1.1rem;font-weight:600;color:var(--acc)}
-.box p{margin:0;color:var(--ink);line-height:1.8;font-size:1rem}
-
-.steps{display:grid;gap:12px;list-style:none;margin:0;padding:0}
-.step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:18px}
-.num{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--acc),var(--acc2));box-shadow:0 6px 16px rgba(37,99,235,.35)}
-.step b{display:block;font-weight:600;margin-bottom:2px}
-.step p{margin:0;color:var(--mute);font-size:.97rem;line-height:1.7}
-.step a{color:var(--acc);text-decoration:none;border-bottom:1px solid rgba(96,165,250,.4);transition:border-color .3s}
+.docs{display:grid;gap:12px}
+.dbox .dt{flex:1;min-width:0}
+.dbox .dt b{font-size:1.02rem}
+.dbox .arr{flex:none;width:20px;height:20px;fill:none;stroke:var(--mute);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s var(--ease),stroke .35s}
+.dbox.sel .arr{stroke:var(--acc);transform:translate(2px,-2px)}
 
 .contact{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .cbox{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;color:inherit;text-decoration:none;min-width:0}
@@ -121,7 +115,7 @@ footer p{margin:2px 0}
 .step a:hover{border-color:var(--acc)}
 footer .fl:hover img{transform:scale(1.05)}
 }
-@media(max-width:760px){.top{padding:34px 18px 30px}h1{font-size:1.65rem}.lead{font-size:1.03rem}.two,.contact{grid-template-columns:1fr}.links a{font-size:.92rem;padding:9px 4px}}
+@media(max-width:760px){.top{padding:34px 18px 30px}h1{font-size:1.65rem}.lead{font-size:1.03rem}.contact{grid-template-columns:1fr}.links a{font-size:.92rem;padding:9px 4px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}h1{color:var(--ink);background:none}}
 </style>
 </head>
@@ -135,45 +129,46 @@ footer .fl:hover img{transform:scale(1.05)}
 </nav>
 </header>
 <main>
-<section class="top glass rv" style="--i:2" id="top">
+<section class="top glass shine rv" style="--i:2" id="top">
 <h1>আমাদের পরিচিতি</h1>
 <p class="lead">Nafi'ah Library একটি ভ্রাম্যমাণ পাঠচক্রভিত্তিক লাইব্রেরি, যেখানে বৈধভাবে সংগৃহীত বই সদস্যদের মাঝে ঘুরিয়ে সাময়িক মেয়াদে পড়ার জন্য বিতরণ করা হয়।</p>
 </section>
 
-<div class="two">
-<article class="box glass shine rv" style="--i:3">
-<h2>আমরা কী করি</h2>
-<p>আমরা বৈধ উপায়ে বই সংগ্রহ করি এবং পাঠচক্রের সদস্যদের মধ্যে সেগুলো ঘুরিয়ে দিই। প্রতিটি বই সাময়িক মেয়াদের জন্য একজন সদস্যের কাছে থাকে, তারপর অন্য পাঠকের হাতে পৌঁছায়।</p>
-</article>
-<article class="box glass shine rv" style="--i:4">
-<h2>আমাদের লক্ষ্য</h2>
-<p>সহজভাবে জ্ঞান পৌঁছে দেওয়া এবং একটি সক্রিয় পাঠ-সংস্কৃতি গড়ে তোলা, যাতে আগ্রহী যে কেউ সহজে ভালো বই পড়ার সুযোগ পান।</p>
-</article>
+<h2 class="st rv" style="--i:3">গুরুত্বপূর্ণ ডকুমেন্ট</h2>
+<div class="docs">
+<a class="cbox dbox glass shine rv" style="--i:4" href="https://drive.google.com/file/d/1g4CivLIkuN-_tGebz7IQ8HBgHLlYFOlk/view?usp=drivesdk" target="_blank" rel="noopener">
+<span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+<span class="dt"><b>লাইব্রেরী পরিচিতি ও নীতিমালা</b><small>লাইব্রেরির পরিচিতি ও নিয়মকানুন দেখুন</small></span>
+<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+</a>
+<a class="cbox dbox glass shine rv" style="--i:5" href="https://drive.google.com/file/d/1InyVbY5bjN4kmCZhVVWTG55W487mJD1t/view?usp=drivesdk" target="_blank" rel="noopener">
+<span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+<span class="dt"><b>বইয়ের তালিকা</b><small>লাইব্রেরির সংগ্রহের বইয়ের পূর্ণ তালিকা</small></span>
+<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+</a>
+<a class="cbox dbox glass shine rv" style="--i:6" href="https://drive.google.com/file/d/1V4RzUbeSFlzPJhij7H_Y7c2bv0tXx9AP/view?usp=drivesdk" target="_blank" rel="noopener">
+<span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+<span class="dt"><b>সদস্যত্ব ফর্ম</b><small>সদস্য হওয়ার ফর্ম দেখুন</small></span>
+<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+</a>
 </div>
 
-<h2 class="st rv" style="--i:5">কীভাবে কাজ করে</h2>
-<ol class="steps">
-<li class="step glass shine rv" style="--i:6"><span class="num" aria-hidden="true">১</span><div><b>বই বেছে নিন</b><p>বইসমূহ পেজে নাম, লেখক বা বিভাগ দিয়ে খুঁজে পছন্দের বই দেখুন। পরে পড়ার জন্য বইটি উইশলিস্টে রাখতে পারেন।</p></div></li>
-<li class="step glass shine rv" style="--i:7"><span class="num" aria-hidden="true">২</span><div><b>মেয়াদ দেখুন</b><p>প্রতিটি বইয়ের পেজে সেই বইয়ের জন্য উপলব্ধ মেয়াদের প্যাকেজ দেওয়া আছে।</p></div></li>
-<li class="step glass shine rv" style="--i:8"><span class="num" aria-hidden="true">৩</span><div><b>যোগাযোগ করুন</b><p>বই সংগ্রহের পদ্ধতি আমাদের কাছ থেকে জেনে নিন। সদস্যপদ বা বই নেওয়ার আগে <a href="https://drive.google.com/file/d/1ROYMLlmQBTk0l94RppsKXvGF0dJnLAlO/view?usp=drivesdk" target="_blank" rel="noopener">পাঠচক্রের নিয়মাবলী ও গাইডলাইন</a> দেখে নিন।</p></div></li>
-</ol>
-
-<h2 class="st rv" style="--i:9">যোগাযোগ</h2>
+<h2 class="st rv" style="--i:7">যোগাযোগ</h2>
 <div class="contact">
-<a class="cbox glass shine rv" style="--i:10" href="mailto:nafiahlibrary@gmail.com">
+<a class="cbox glass shine rv" style="--i:8" href="mailto:nafiahlibrary@gmail.com">
 <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
 <span><small>ইমেইল</small><b>nafiahlibrary@gmail.com</b></span>
 </a>
-<a class="cbox glass shine rv" style="--i:11" href="https://nafiah-library.github.io/web" target="_blank" rel="noopener">
+<a class="cbox glass shine rv" style="--i:9" href="https://nafiah-library.github.io/web" target="_blank" rel="noopener">
 <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.500 5.700 12 3z"/></svg></span>
 <span><small>ওয়েবসাইট</small><b>nafiah-library.github.io/web</b></span>
 </a>
 </div>
 
-<div class="cta-wrap rv" style="--i:12"><a class="cta-btn" id="cta" href="books.html">বইসমূহ দেখুন</a></div>
+<div class="cta-wrap rv" style="--i:10"><a class="cta-btn" id="cta" href="books.html">বইসমূহ দেখুন</a></div>
 </main>
 
-<footer class="rv" style="--i:13">
+<footer class="rv" style="--i:11">
 <a class="fl" href="index.html" aria-label="Nafi'ah Library হোম"><img class="fade" src="https://i.ibb.co.com/RkKNgBzP/IMG-20261012-191353.png" alt="Nafi'ah Library Logo" decoding="async"></a>
 <div class="fline"></div>
 <p>© Nafi'ah Library since 2025</p>
@@ -189,6 +184,14 @@ footer .fl:hover img{transform:scale(1.05)}
 
 <script>
 (function(){
+/* safety net: if this file is pasted/uploaded twice by mistake, run only once and drop the extra copy of the page */
+if(window.__nafiahInit)return;window.__nafiahInit=1;
+document.addEventListener("DOMContentLoaded",function(){
+  ["header","main","footer","#pop","#toast"].forEach(function(q){
+    var n=document.querySelectorAll(q);
+    for(var i=1;i<n.length;i++)n[i].remove();
+  });
+});
 var $=function(s,r){return (r||document).querySelector(s)},
     reduce=matchMedia("(prefers-reduced-motion:reduce)").matches,
     fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
@@ -227,7 +230,6 @@ document.querySelectorAll(".shine").forEach(function(el){
   if(plain){el.tabIndex=0;if(!el.getAttribute("role"))el.setAttribute("role","button")}
   el.addEventListener("click",function(e){
     e.stopPropagation();
-    if(el.tagName==="A")fx(el,e);
     pick(el);
   });
   el.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&plain){e.preventDefault();pick(el)}});
